@@ -1,0 +1,3564 @@
+{
+  "version": "2",
+  "contexts": {
+    "https://w3id.org/security/v1": {
+      "@context": {
+        "CryptographicKey": "sec:Key",
+        "EcdsaKoblitzSignature2016": "sec:EcdsaKoblitzSignature2016",
+        "Ed25519Signature2018": "sec:Ed25519Signature2018",
+        "EncryptedMessage": "sec:EncryptedMessage",
+        "GraphSignature2012": "sec:GraphSignature2012",
+        "LinkedDataSignature2015": "sec:LinkedDataSignature2015",
+        "LinkedDataSignature2016": "sec:LinkedDataSignature2016",
+        "authenticationTag": "sec:authenticationTag",
+        "canonicalizationAlgorithm": "sec:canonicalizationAlgorithm",
+        "cipherAlgorithm": "sec:cipherAlgorithm",
+        "cipherData": "sec:cipherData",
+        "cipherKey": "sec:cipherKey",
+        "created": { "@id": "dc:created", "@type": "xsd:dateTime" },
+        "creator": { "@id": "dc:creator", "@type": "@id" },
+        "dc": "http://purl.org/dc/terms/",
+        "digestAlgorithm": "sec:digestAlgorithm",
+        "digestValue": "sec:digestValue",
+        "domain": "sec:domain",
+        "encryptionKey": "sec:encryptionKey",
+        "expiration": { "@id": "sec:expiration", "@type": "xsd:dateTime" },
+        "expires": { "@id": "sec:expiration", "@type": "xsd:dateTime" },
+        "id": "@id",
+        "initializationVector": "sec:initializationVector",
+        "iterationCount": "sec:iterationCount",
+        "nonce": "sec:nonce",
+        "normalizationAlgorithm": "sec:normalizationAlgorithm",
+        "owner": { "@id": "sec:owner", "@type": "@id" },
+        "password": "sec:password",
+        "privateKey": { "@id": "sec:privateKey", "@type": "@id" },
+        "privateKeyPem": "sec:privateKeyPem",
+        "publicKey": { "@id": "sec:publicKey", "@type": "@id" },
+        "publicKeyBase58": "sec:publicKeyBase58",
+        "publicKeyPem": "sec:publicKeyPem",
+        "publicKeyService": { "@id": "sec:publicKeyService", "@type": "@id" },
+        "publicKeyWif": "sec:publicKeyWif",
+        "revoked": { "@id": "sec:revoked", "@type": "xsd:dateTime" },
+        "salt": "sec:salt",
+        "sec": "https://w3id.org/security#",
+        "signature": "sec:signature",
+        "signatureAlgorithm": "sec:signingAlgorithm",
+        "signatureValue": "sec:signatureValue",
+        "type": "@type",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+      }
+    },
+    "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q": {
+      "@context": {
+        "@protected": true,
+        "ComputationRegistration": {
+          "@context": {
+            "computation": {
+              "@id": "https://eqtylab.io/terms/computation",
+              "@type": "@id"
+            },
+            "executedOn": {
+              "@id": "https://eqtylab.io/terms/executedOn",
+              "@type": "@id"
+            },
+            "input": {
+              "@id": "https://eqtylab.io/terms/input",
+              "@type": "@id"
+            },
+            "operatedBy": {
+              "@id": "https://eqtylab.io/terms/operatedBy",
+              "@type": "@id"
+            },
+            "output": {
+              "@id": "https://eqtylab.io/terms/output",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/ComputationRegistration"
+        },
+        "CredentialRegistration": {
+          "@context": {
+            "credential": {
+              "@id": "https://eqtylab.io/terms/credential",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/CredentialRegistration"
+        },
+        "DataRegistration": {
+          "@context": {
+            "data": { "@id": "https://eqtylab.io/terms/data", "@type": "@id" }
+          },
+          "@id": "https://eqtylab.io/terms/DataRegistration"
+        },
+        "DidRegistration": {
+          "@context": {
+            "did": { "@id": "https://eqtylab.io/terms/did", "@type": "@id" }
+          },
+          "@id": "https://eqtylab.io/terms/DidRegistration"
+        },
+        "GovernanceRegistration": {
+          "@context": {
+            "request": {
+              "@id": "https://eqtylab.io/terms/request",
+              "@type": "@id"
+            },
+            "result": {
+              "@id": "https://eqtylab.io/terms/result",
+              "@type": "@id"
+            },
+            "subject": {
+              "@id": "https://eqtylab.io/terms/subject",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/GovernanceRegistration"
+        },
+        "MetadataRegistration": {
+          "@context": {
+            "metadata": {
+              "@id": "https://eqtylab.io/terms/metadata",
+              "@type": "@id"
+            },
+            "subject": {
+              "@id": "https://eqtylab.io/terms/subject",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/MetadataRegistration"
+        },
+        "StorageRegistration": {
+          "@context": {
+            "data": { "@id": "https://eqtylab.io/terms/data", "@type": "@id" },
+            "operatedBy": {
+              "@id": "https://eqtylab.io/terms/operatedBy",
+              "@type": "@id"
+            },
+            "storedOn": {
+              "@id": "https://eqtylab.io/terms/storedOn",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/StorageRegistration"
+        },
+        "registeredBy": {
+          "@id": "https://eqtylab.io/terms/registeredBy",
+          "@type": "@id"
+        },
+        "timestamp": {
+          "@id": "https://eqtylab.io/terms/timestamp",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        }
+      }
+    },
+    "urn:cid:bafkr4ihuzdhq2mma2z7352s47nfnjntprcqfsjas4wfb72bcl3tbw5goji": {
+      "@context": {
+        "@protected": true,
+        "ComputationRegistration": {
+          "@context": {
+            "computation": {
+              "@id": "https://eqtylab.io/terms/computation",
+              "@type": "@id"
+            },
+            "executedOn": {
+              "@id": "https://eqtylab.io/terms/executedOn",
+              "@type": "@id"
+            },
+            "input": {
+              "@id": "https://eqtylab.io/terms/input",
+              "@type": "@id"
+            },
+            "operatedBy": {
+              "@id": "https://eqtylab.io/terms/operatedBy",
+              "@type": "@id"
+            },
+            "output": {
+              "@id": "https://eqtylab.io/terms/output",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/ComputationRegistration"
+        },
+        "CredentialRegistration": {
+          "@context": {
+            "credential": {
+              "@id": "https://eqtylab.io/terms/credential",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/CredentialRegistration"
+        },
+        "DataRegistration": {
+          "@context": {
+            "data": { "@id": "https://eqtylab.io/terms/data", "@type": "@id" }
+          },
+          "@id": "https://eqtylab.io/terms/DataRegistration"
+        },
+        "DidRegistration": {
+          "@context": {
+            "did": { "@id": "https://eqtylab.io/terms/did", "@type": "@id" }
+          },
+          "@id": "https://eqtylab.io/terms/DidRegistration"
+        },
+        "GovernanceRegistration": {
+          "@context": {
+            "request": {
+              "@id": "https://eqtylab.io/terms/request",
+              "@type": "@id"
+            },
+            "result": {
+              "@id": "https://eqtylab.io/terms/result",
+              "@type": "@id"
+            },
+            "subject": {
+              "@id": "https://eqtylab.io/terms/subject",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/GovernanceRegistration"
+        },
+        "StorageRegistration": {
+          "@context": {
+            "data": { "@id": "https://eqtylab.io/terms/data", "@type": "@id" },
+            "operatedBy": {
+              "@id": "https://eqtylab.io/terms/operatedBy",
+              "@type": "@id"
+            },
+            "storedOn": {
+              "@id": "https://eqtylab.io/terms/storedOn",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/StorageRegistration"
+        },
+        "registeredBy": {
+          "@id": "https://eqtylab.io/terms/registeredBy",
+          "@type": "@id"
+        },
+        "timestamp": {
+          "@id": "https://eqtylab.io/terms/timestamp",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        }
+      }
+    },
+    "https://www.w3.org/ns/credentials/v2": {
+      "@context": {
+        "...": { "@id": "https://www.iana.org/assignments/jwt#..." },
+        "@protected": true,
+        "@vocab": "https://www.w3.org/ns/credentials/issuer-dependent#",
+        "DataIntegrityProof": {
+          "@context": {
+            "@protected": true,
+            "challenge": "https://w3id.org/security#challenge",
+            "created": {
+              "@id": "http://purl.org/dc/terms/created",
+              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
+            "cryptosuite": {
+              "@id": "https://w3id.org/security#cryptosuite",
+              "@type": "https://w3id.org/security#cryptosuiteString"
+            },
+            "domain": "https://w3id.org/security#domain",
+            "expires": {
+              "@id": "https://w3id.org/security#expiration",
+              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
+            "id": "@id",
+            "nonce": "https://w3id.org/security#nonce",
+            "previousProof": {
+              "@id": "https://w3id.org/security#previousProof",
+              "@type": "@id"
+            },
+            "proofPurpose": {
+              "@context": {
+                "@protected": true,
+                "assertionMethod": {
+                  "@container": "@set",
+                  "@id": "https://w3id.org/security#assertionMethod",
+                  "@type": "@id"
+                },
+                "authentication": {
+                  "@container": "@set",
+                  "@id": "https://w3id.org/security#authenticationMethod",
+                  "@type": "@id"
+                },
+                "capabilityDelegation": {
+                  "@container": "@set",
+                  "@id": "https://w3id.org/security#capabilityDelegationMethod",
+                  "@type": "@id"
+                },
+                "capabilityInvocation": {
+                  "@container": "@set",
+                  "@id": "https://w3id.org/security#capabilityInvocationMethod",
+                  "@type": "@id"
+                },
+                "id": "@id",
+                "keyAgreement": {
+                  "@container": "@set",
+                  "@id": "https://w3id.org/security#keyAgreementMethod",
+                  "@type": "@id"
+                },
+                "type": "@type"
+              },
+              "@id": "https://w3id.org/security#proofPurpose",
+              "@type": "@vocab"
+            },
+            "proofValue": {
+              "@id": "https://w3id.org/security#proofValue",
+              "@type": "https://w3id.org/security#multibase"
+            },
+            "type": "@type",
+            "verificationMethod": {
+              "@id": "https://w3id.org/security#verificationMethod",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://w3id.org/security#DataIntegrityProof"
+        },
+        "JsonSchema": {
+          "@context": {
+            "@protected": true,
+            "id": "@id",
+            "jsonSchema": {
+              "@id": "https://w3.org/2018/credentials#jsonSchema",
+              "@type": "@json"
+            },
+            "type": "@type"
+          },
+          "@id": "https://w3.org/2018/credentials#JsonSchema"
+        },
+        "JsonSchemaCredential": "https://w3.org/2018/credentials#JsonSchemaCredential",
+        "StatusList2021": {
+          "@context": {
+            "@protected": true,
+            "encodedList": "https://w3id.org/vc/status-list#encodedList",
+            "id": "@id",
+            "statusPurpose": "https://w3id.org/vc/status-list#statusPurpose",
+            "type": "@type"
+          },
+          "@id": "https://w3id.org/vc/status-list#StatusList2021"
+        },
+        "StatusList2021Credential": {
+          "@context": {
+            "@protected": true,
+            "description": "https://schema.org/description",
+            "id": "@id",
+            "name": "https://schema.org/name",
+            "type": "@type"
+          },
+          "@id": "https://w3id.org/vc/status-list#StatusList2021Credential"
+        },
+        "StatusList2021Entry": {
+          "@context": {
+            "@protected": true,
+            "id": "@id",
+            "statusListCredential": {
+              "@id": "https://w3id.org/vc/status-list#statusListCredential",
+              "@type": "@id"
+            },
+            "statusListIndex": "https://w3id.org/vc/status-list#statusListIndex",
+            "statusPurpose": "https://w3id.org/vc/status-list#statusPurpose",
+            "type": "@type"
+          },
+          "@id": "https://w3id.org/vc/status-list#StatusList2021Entry"
+        },
+        "VerifiableCredential": {
+          "@context": {
+            "@protected": true,
+            "confidenceMethod": {
+              "@id": "https://www.w3.org/2018/credentials#confidenceMethod",
+              "@type": "@id"
+            },
+            "credentialSchema": {
+              "@id": "https://www.w3.org/2018/credentials#credentialSchema",
+              "@type": "@id"
+            },
+            "credentialStatus": {
+              "@id": "https://www.w3.org/2018/credentials#credentialStatus",
+              "@type": "@id"
+            },
+            "credentialSubject": {
+              "@id": "https://www.w3.org/2018/credentials#credentialSubject",
+              "@type": "@id"
+            },
+            "description": {
+              "@context": {
+                "dir": "@direction",
+                "lang": "@language",
+                "value": "@value"
+              },
+              "@id": "https://schema.org/description"
+            },
+            "evidence": {
+              "@id": "https://www.w3.org/2018/credentials#evidence",
+              "@type": "@id"
+            },
+            "id": "@id",
+            "issuer": {
+              "@context": {
+                "@protected": true,
+                "description": {
+                  "@context": {
+                    "dir": "@direction",
+                    "lang": "@language",
+                    "value": "@value"
+                  },
+                  "@id": "https://schema.org/description"
+                },
+                "id": "@id",
+                "name": {
+                  "@context": {
+                    "dir": "@direction",
+                    "lang": "@language",
+                    "value": "@value"
+                  },
+                  "@id": "https://schema.org/name"
+                },
+                "type": "@type"
+              },
+              "@id": "https://www.w3.org/2018/credentials#issuer",
+              "@type": "@id"
+            },
+            "name": {
+              "@context": {
+                "dir": "@direction",
+                "lang": "@language",
+                "value": "@value"
+              },
+              "@id": "https://schema.org/name"
+            },
+            "proof": {
+              "@container": "@graph",
+              "@id": "https://w3id.org/security#proof",
+              "@type": "@id"
+            },
+            "refreshService": {
+              "@id": "https://www.w3.org/2018/credentials#refreshService",
+              "@type": "@id"
+            },
+            "relatedResource": {
+              "@id": "https://www.w3.org/2018/credentials#relatedResource",
+              "@type": "@id"
+            },
+            "termsOfUse": {
+              "@id": "https://www.w3.org/2018/credentials#termsOfUse",
+              "@type": "@id"
+            },
+            "type": "@type",
+            "validFrom": {
+              "@id": "https://www.w3.org/2018/credentials#validFrom",
+              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
+            "validUntil": {
+              "@id": "https://www.w3.org/2018/credentials#validUntil",
+              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          },
+          "@id": "https://www.w3.org/2018/credentials#VerifiableCredential"
+        },
+        "VerifiablePresentation": {
+          "@context": {
+            "@protected": true,
+            "holder": {
+              "@id": "https://www.w3.org/2018/credentials#holder",
+              "@type": "@id"
+            },
+            "id": "@id",
+            "proof": {
+              "@container": "@graph",
+              "@id": "https://w3id.org/security#proof",
+              "@type": "@id"
+            },
+            "termsOfUse": {
+              "@id": "https://www.w3.org/2018/credentials#termsOfUse",
+              "@type": "@id"
+            },
+            "type": "@type",
+            "verifiableCredential": {
+              "@container": "@graph",
+              "@context": null,
+              "@id": "https://www.w3.org/2018/credentials#verifiableCredential",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://www.w3.org/2018/credentials#VerifiablePresentation"
+        },
+        "_sd": { "@id": "https://www.iana.org/assignments/jwt#_sd" },
+        "_sd_alg": { "@id": "https://www.iana.org/assignments/jwt#_sd_alg" },
+        "aud": {
+          "@id": "https://www.iana.org/assignments/jwt#aud",
+          "@type": "@id"
+        },
+        "cnf": {
+          "@context": {
+            "@protected": true,
+            "jwk": {
+              "@id": "https://www.iana.org/assignments/jwt#jwk",
+              "@type": "@json"
+            },
+            "kid": {
+              "@id": "https://www.iana.org/assignments/jwt#kid",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://www.iana.org/assignments/jwt#cnf"
+        },
+        "digestSRI": {
+          "@id": "https://www.w3.org/2018/credentials#digestSRI",
+          "@type": "https://www.w3.org/2018/credentials#sriString"
+        },
+        "exp": {
+          "@id": "https://www.iana.org/assignments/jwt#exp",
+          "@type": "https://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        },
+        "iat": {
+          "@id": "https://www.iana.org/assignments/jwt#iat",
+          "@type": "https://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        },
+        "id": "@id",
+        "iss": {
+          "@id": "https://www.iana.org/assignments/jose#iss",
+          "@type": "@id"
+        },
+        "jku": {
+          "@id": "https://www.iana.org/assignments/jose#jku",
+          "@type": "@id"
+        },
+        "kid": {
+          "@id": "https://www.iana.org/assignments/jose#kid",
+          "@type": "@id"
+        },
+        "mediaType": { "@id": "https://schema.org/encodingFormat" },
+        "nbf": {
+          "@id": "https://www.iana.org/assignments/jwt#nbf",
+          "@type": "https://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        },
+        "sub": {
+          "@id": "https://www.iana.org/assignments/jose#sub",
+          "@type": "@id"
+        },
+        "type": "@type",
+        "x5u": {
+          "@id": "https://www.iana.org/assignments/jose#x5u",
+          "@type": "@id"
+        }
+      }
+    },
+    "https://w3id.org/security/v2": {
+      "@context": [
+        { "@version": 1.1 },
+        "https://w3id.org/security/v1",
+        {
+          "AesKeyWrappingKey2019": "sec:AesKeyWrappingKey2019",
+          "DeleteKeyOperation": "sec:DeleteKeyOperation",
+          "DeriveSecretOperation": "sec:DeriveSecretOperation",
+          "EcdsaSecp256k1Signature2019": "sec:EcdsaSecp256k1Signature2019",
+          "EcdsaSecp256k1VerificationKey2019": "sec:EcdsaSecp256k1VerificationKey2019",
+          "EcdsaSecp256r1Signature2019": "sec:EcdsaSecp256r1Signature2019",
+          "EcdsaSecp256r1VerificationKey2019": "sec:EcdsaSecp256r1VerificationKey2019",
+          "Ed25519Signature2018": "sec:Ed25519Signature2018",
+          "Ed25519VerificationKey2018": "sec:Ed25519VerificationKey2018",
+          "EquihashProof2018": "sec:EquihashProof2018",
+          "ExportKeyOperation": "sec:ExportKeyOperation",
+          "GenerateKeyOperation": "sec:GenerateKeyOperation",
+          "KmsOperation": "sec:KmsOperation",
+          "RevokeKeyOperation": "sec:RevokeKeyOperation",
+          "RsaSignature2018": "sec:RsaSignature2018",
+          "RsaVerificationKey2018": "sec:RsaVerificationKey2018",
+          "Sha256HmacKey2019": "sec:Sha256HmacKey2019",
+          "SignOperation": "sec:SignOperation",
+          "UnwrapKeyOperation": "sec:UnwrapKeyOperation",
+          "VerifyOperation": "sec:VerifyOperation",
+          "WrapKeyOperation": "sec:WrapKeyOperation",
+          "X25519KeyAgreementKey2019": "sec:X25519KeyAgreementKey2019",
+          "allowedAction": "sec:allowedAction",
+          "assertionMethod": {
+            "@container": "@set",
+            "@id": "sec:assertionMethod",
+            "@type": "@id"
+          },
+          "authentication": {
+            "@container": "@set",
+            "@id": "sec:authenticationMethod",
+            "@type": "@id"
+          },
+          "capability": { "@id": "sec:capability", "@type": "@id" },
+          "capabilityAction": "sec:capabilityAction",
+          "capabilityChain": {
+            "@container": "@list",
+            "@id": "sec:capabilityChain",
+            "@type": "@id"
+          },
+          "capabilityDelegation": {
+            "@container": "@set",
+            "@id": "sec:capabilityDelegationMethod",
+            "@type": "@id"
+          },
+          "capabilityInvocation": {
+            "@container": "@set",
+            "@id": "sec:capabilityInvocationMethod",
+            "@type": "@id"
+          },
+          "caveat": {
+            "@container": "@set",
+            "@id": "sec:caveat",
+            "@type": "@id"
+          },
+          "challenge": "sec:challenge",
+          "ciphertext": "sec:ciphertext",
+          "controller": { "@id": "sec:controller", "@type": "@id" },
+          "delegator": { "@id": "sec:delegator", "@type": "@id" },
+          "equihashParameterK": {
+            "@id": "sec:equihashParameterK",
+            "@type": "xsd:integer"
+          },
+          "equihashParameterN": {
+            "@id": "sec:equihashParameterN",
+            "@type": "xsd:integer"
+          },
+          "invocationTarget": { "@id": "sec:invocationTarget", "@type": "@id" },
+          "invoker": { "@id": "sec:invoker", "@type": "@id" },
+          "jws": "sec:jws",
+          "keyAgreement": {
+            "@container": "@set",
+            "@id": "sec:keyAgreementMethod",
+            "@type": "@id"
+          },
+          "kmsModule": { "@id": "sec:kmsModule" },
+          "parentCapability": { "@id": "sec:parentCapability", "@type": "@id" },
+          "plaintext": "sec:plaintext",
+          "proof": {
+            "@container": "@graph",
+            "@id": "sec:proof",
+            "@type": "@id"
+          },
+          "proofPurpose": { "@id": "sec:proofPurpose", "@type": "@vocab" },
+          "proofValue": "sec:proofValue",
+          "referenceId": "sec:referenceId",
+          "unwrappedKey": "sec:unwrappedKey",
+          "verificationMethod": {
+            "@id": "sec:verificationMethod",
+            "@type": "@id"
+          },
+          "verifyData": "sec:verifyData",
+          "wrappedKey": "sec:wrappedKey"
+        }
+      ]
+    },
+    "https://www.w3.org/2018/credentials/v1": {
+      "@context": {
+        "@protected": true,
+        "@version": 1.1,
+        "EcdsaSecp256k1Signature2019": {
+          "@context": {
+            "@protected": true,
+            "@version": 1.1,
+            "challenge": "sec:challenge",
+            "created": {
+              "@id": "http://purl.org/dc/terms/created",
+              "@type": "xsd:dateTime"
+            },
+            "domain": "sec:domain",
+            "expires": { "@id": "sec:expiration", "@type": "xsd:dateTime" },
+            "id": "@id",
+            "jws": "sec:jws",
+            "nonce": "sec:nonce",
+            "proofPurpose": {
+              "@context": {
+                "@protected": true,
+                "@version": 1.1,
+                "assertionMethod": {
+                  "@container": "@set",
+                  "@id": "sec:assertionMethod",
+                  "@type": "@id"
+                },
+                "authentication": {
+                  "@container": "@set",
+                  "@id": "sec:authenticationMethod",
+                  "@type": "@id"
+                },
+                "id": "@id",
+                "sec": "https://w3id.org/security#",
+                "type": "@type"
+              },
+              "@id": "sec:proofPurpose",
+              "@type": "@vocab"
+            },
+            "proofValue": "sec:proofValue",
+            "sec": "https://w3id.org/security#",
+            "type": "@type",
+            "verificationMethod": {
+              "@id": "sec:verificationMethod",
+              "@type": "@id"
+            },
+            "xsd": "http://www.w3.org/2001/XMLSchema#"
+          },
+          "@id": "https://w3id.org/security#EcdsaSecp256k1Signature2019"
+        },
+        "EcdsaSecp256r1Signature2019": {
+          "@context": {
+            "@protected": true,
+            "@version": 1.1,
+            "challenge": "sec:challenge",
+            "created": {
+              "@id": "http://purl.org/dc/terms/created",
+              "@type": "xsd:dateTime"
+            },
+            "domain": "sec:domain",
+            "expires": { "@id": "sec:expiration", "@type": "xsd:dateTime" },
+            "id": "@id",
+            "jws": "sec:jws",
+            "nonce": "sec:nonce",
+            "proofPurpose": {
+              "@context": {
+                "@protected": true,
+                "@version": 1.1,
+                "assertionMethod": {
+                  "@container": "@set",
+                  "@id": "sec:assertionMethod",
+                  "@type": "@id"
+                },
+                "authentication": {
+                  "@container": "@set",
+                  "@id": "sec:authenticationMethod",
+                  "@type": "@id"
+                },
+                "id": "@id",
+                "sec": "https://w3id.org/security#",
+                "type": "@type"
+              },
+              "@id": "sec:proofPurpose",
+              "@type": "@vocab"
+            },
+            "proofValue": "sec:proofValue",
+            "sec": "https://w3id.org/security#",
+            "type": "@type",
+            "verificationMethod": {
+              "@id": "sec:verificationMethod",
+              "@type": "@id"
+            },
+            "xsd": "http://www.w3.org/2001/XMLSchema#"
+          },
+          "@id": "https://w3id.org/security#EcdsaSecp256r1Signature2019"
+        },
+        "Ed25519Signature2018": {
+          "@context": {
+            "@protected": true,
+            "@version": 1.1,
+            "challenge": "sec:challenge",
+            "created": {
+              "@id": "http://purl.org/dc/terms/created",
+              "@type": "xsd:dateTime"
+            },
+            "domain": "sec:domain",
+            "expires": { "@id": "sec:expiration", "@type": "xsd:dateTime" },
+            "id": "@id",
+            "jws": "sec:jws",
+            "nonce": "sec:nonce",
+            "proofPurpose": {
+              "@context": {
+                "@protected": true,
+                "@version": 1.1,
+                "assertionMethod": {
+                  "@container": "@set",
+                  "@id": "sec:assertionMethod",
+                  "@type": "@id"
+                },
+                "authentication": {
+                  "@container": "@set",
+                  "@id": "sec:authenticationMethod",
+                  "@type": "@id"
+                },
+                "id": "@id",
+                "sec": "https://w3id.org/security#",
+                "type": "@type"
+              },
+              "@id": "sec:proofPurpose",
+              "@type": "@vocab"
+            },
+            "proofValue": "sec:proofValue",
+            "sec": "https://w3id.org/security#",
+            "type": "@type",
+            "verificationMethod": {
+              "@id": "sec:verificationMethod",
+              "@type": "@id"
+            },
+            "xsd": "http://www.w3.org/2001/XMLSchema#"
+          },
+          "@id": "https://w3id.org/security#Ed25519Signature2018"
+        },
+        "RsaSignature2018": {
+          "@context": {
+            "@protected": true,
+            "@version": 1.1,
+            "challenge": "sec:challenge",
+            "created": {
+              "@id": "http://purl.org/dc/terms/created",
+              "@type": "xsd:dateTime"
+            },
+            "domain": "sec:domain",
+            "expires": { "@id": "sec:expiration", "@type": "xsd:dateTime" },
+            "jws": "sec:jws",
+            "nonce": "sec:nonce",
+            "proofPurpose": {
+              "@context": {
+                "@protected": true,
+                "@version": 1.1,
+                "assertionMethod": {
+                  "@container": "@set",
+                  "@id": "sec:assertionMethod",
+                  "@type": "@id"
+                },
+                "authentication": {
+                  "@container": "@set",
+                  "@id": "sec:authenticationMethod",
+                  "@type": "@id"
+                },
+                "id": "@id",
+                "sec": "https://w3id.org/security#",
+                "type": "@type"
+              },
+              "@id": "sec:proofPurpose",
+              "@type": "@vocab"
+            },
+            "proofValue": "sec:proofValue",
+            "verificationMethod": {
+              "@id": "sec:verificationMethod",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://w3id.org/security#RsaSignature2018"
+        },
+        "VerifiableCredential": {
+          "@context": {
+            "@protected": true,
+            "@version": 1.1,
+            "cred": "https://www.w3.org/2018/credentials#",
+            "credentialSchema": {
+              "@context": {
+                "@protected": true,
+                "@version": 1.1,
+                "JsonSchemaValidator2018": "cred:JsonSchemaValidator2018",
+                "cred": "https://www.w3.org/2018/credentials#",
+                "id": "@id",
+                "type": "@type"
+              },
+              "@id": "cred:credentialSchema",
+              "@type": "@id"
+            },
+            "credentialStatus": {
+              "@id": "cred:credentialStatus",
+              "@type": "@id"
+            },
+            "credentialSubject": {
+              "@id": "cred:credentialSubject",
+              "@type": "@id"
+            },
+            "evidence": { "@id": "cred:evidence", "@type": "@id" },
+            "expirationDate": {
+              "@id": "cred:expirationDate",
+              "@type": "xsd:dateTime"
+            },
+            "holder": { "@id": "cred:holder", "@type": "@id" },
+            "id": "@id",
+            "issuanceDate": {
+              "@id": "cred:issuanceDate",
+              "@type": "xsd:dateTime"
+            },
+            "issued": { "@id": "cred:issued", "@type": "xsd:dateTime" },
+            "issuer": { "@id": "cred:issuer", "@type": "@id" },
+            "proof": {
+              "@container": "@graph",
+              "@id": "sec:proof",
+              "@type": "@id"
+            },
+            "refreshService": {
+              "@context": {
+                "@protected": true,
+                "@version": 1.1,
+                "ManualRefreshService2018": "cred:ManualRefreshService2018",
+                "cred": "https://www.w3.org/2018/credentials#",
+                "id": "@id",
+                "type": "@type"
+              },
+              "@id": "cred:refreshService",
+              "@type": "@id"
+            },
+            "sec": "https://w3id.org/security#",
+            "termsOfUse": { "@id": "cred:termsOfUse", "@type": "@id" },
+            "type": "@type",
+            "validFrom": { "@id": "cred:validFrom", "@type": "xsd:dateTime" },
+            "validUntil": { "@id": "cred:validUntil", "@type": "xsd:dateTime" },
+            "xsd": "http://www.w3.org/2001/XMLSchema#"
+          },
+          "@id": "https://www.w3.org/2018/credentials#VerifiableCredential"
+        },
+        "VerifiablePresentation": {
+          "@context": {
+            "@protected": true,
+            "@version": 1.1,
+            "cred": "https://www.w3.org/2018/credentials#",
+            "holder": { "@id": "cred:holder", "@type": "@id" },
+            "id": "@id",
+            "proof": {
+              "@container": "@graph",
+              "@id": "sec:proof",
+              "@type": "@id"
+            },
+            "sec": "https://w3id.org/security#",
+            "type": "@type",
+            "verifiableCredential": {
+              "@container": "@graph",
+              "@id": "cred:verifiableCredential",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://www.w3.org/2018/credentials#VerifiablePresentation"
+        },
+        "id": "@id",
+        "proof": {
+          "@container": "@graph",
+          "@id": "https://w3id.org/security#proof",
+          "@type": "@id"
+        },
+        "type": "@type"
+      }
+    },
+    "urn:cid:bafkr4ihfxf47x5w7geqgsmjzcu3xpkxvidwqqj4jzersgb5nk4iu7vho7a": {
+      "@context": {
+        "@protected": true,
+        "ComputationRegistration": {
+          "@context": {
+            "executedOn": {
+              "@id": "https://eqtylab.io/terms/executedOn",
+              "@type": "@id"
+            },
+            "input": {
+              "@id": "https://eqtylab.io/terms/input",
+              "@type": "@id"
+            },
+            "operatedBy": {
+              "@id": "https://eqtylab.io/terms/operatedBy",
+              "@type": "@id"
+            },
+            "output": {
+              "@id": "https://eqtylab.io/terms/output",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/ComputationRegistration"
+        },
+        "CredentialRegistration": {
+          "@context": {
+            "credential": {
+              "@id": "https://eqtylab.io/terms/credential",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/CredentialRegistration"
+        },
+        "DataRegistration": {
+          "@context": {
+            "data": { "@id": "https://eqtylab.io/terms/data", "@type": "@id" }
+          },
+          "@id": "https://eqtylab.io/terms/DataRegistration"
+        },
+        "DidRegistration": {
+          "@context": {
+            "did": { "@id": "https://eqtylab.io/terms/did", "@type": "@id" }
+          },
+          "@id": "https://eqtylab.io/terms/DidRegistration"
+        },
+        "GovernanceRegistration": {
+          "@context": {
+            "result": {
+              "@id": "https://eqtylab.io/terms/result",
+              "@type": "@id"
+            },
+            "reviewPlan": {
+              "@id": "https://eqtylab.io/terms/reviewPlan",
+              "@type": "@id"
+            },
+            "subject": {
+              "@id": "https://eqtylab.io/terms/subject",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/GovernanceRegistration"
+        },
+        "StorageRegistration": {
+          "@context": {
+            "data": { "@id": "https://eqtylab.io/terms/data", "@type": "@id" },
+            "operatedBy": {
+              "@id": "https://eqtylab.io/terms/operatedBy",
+              "@type": "@id"
+            },
+            "storedOn": {
+              "@id": "https://eqtylab.io/terms/storedOn",
+              "@type": "@id"
+            }
+          },
+          "@id": "https://eqtylab.io/terms/StorageRegistration"
+        },
+        "registeredBy": {
+          "@id": "https://eqtylab.io/terms/registeredBy",
+          "@type": "@id"
+        },
+        "timestamp": {
+          "@id": "https://eqtylab.io/terms/timestamp",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        }
+      }
+    },
+    "https://www.w3.org/ns/did/v1": {
+      "@context": {
+        "@protected": true,
+        "alsoKnownAs": {
+          "@id": "https://www.w3.org/ns/activitystreams#alsoKnownAs",
+          "@type": "@id"
+        },
+        "assertionMethod": {
+          "@container": "@set",
+          "@id": "https://w3id.org/security#assertionMethod",
+          "@type": "@id"
+        },
+        "authentication": {
+          "@container": "@set",
+          "@id": "https://w3id.org/security#authenticationMethod",
+          "@type": "@id"
+        },
+        "capabilityDelegation": {
+          "@container": "@set",
+          "@id": "https://w3id.org/security#capabilityDelegationMethod",
+          "@type": "@id"
+        },
+        "capabilityInvocation": {
+          "@container": "@set",
+          "@id": "https://w3id.org/security#capabilityInvocationMethod",
+          "@type": "@id"
+        },
+        "controller": {
+          "@id": "https://w3id.org/security#controller",
+          "@type": "@id"
+        },
+        "id": "@id",
+        "keyAgreement": {
+          "@container": "@set",
+          "@id": "https://w3id.org/security#keyAgreementMethod",
+          "@type": "@id"
+        },
+        "service": {
+          "@context": {
+            "@protected": true,
+            "id": "@id",
+            "serviceEndpoint": {
+              "@id": "https://www.w3.org/ns/did#serviceEndpoint",
+              "@type": "@id"
+            },
+            "type": "@type"
+          },
+          "@id": "https://www.w3.org/ns/did#service",
+          "@type": "@id"
+        },
+        "type": "@type",
+        "verificationMethod": {
+          "@id": "https://w3id.org/security#verificationMethod",
+          "@type": "@id"
+        }
+      }
+    }
+  },
+  "statements": {
+    "urn:cid:bagb6qaq6ecgzln2aolxxikr2vs2lqaffb7z62lnoxeljrqs3btu6sou6mehnc": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecgzln2aolxxikr2vs2lqaffb7z62lnoxeljrqs3btu6sou6mehnc",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6edjmms2lmxnbogizexu254whl6pghkiywgcqxh7zwvldfsctiyrmy"
+        },
+        "id": "urn:uuid:3e972b8e-531e-46e5-a9e9-e65497e210c2",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.349241Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..X1_AF0eRObgZMvIfgWl1LvPrFBnF6PVHX9MZGHIemjUh1aRCo95i2mr5q1J45Ez64ks_mYbQdwVBblEuhnlhQQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eaifkpbymmetasnzovxyc6ypgucxkqdjwtec43bl5w4kx5kxkvpew": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eaifkpbymmetasnzovxyc6ypgucxkqdjwtec43bl5w4kx5kxkvpew",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ea6xxs5m5fq3yoymjmpqzdoky5n537zharydbh4l7w5p4cen25qq6",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4id3reg3zexokcbprqfto5lpnrxsgappztjp4rz7ix2chhxh27b4m4",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edm7b4kela76l37glmbecgzpoczbln22xyrjj6kgqmzju5sz34cxk": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edm7b4kela76l37glmbecgzpoczbln22xyrjj6kgqmzju5sz34cxk",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eaxaatwqhwazzlbib2f33m6btlfyu3dblda4wzhol5jllvpj55vy4",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ifkrqtznyp6mv7kxumrymbyltdcvafh6rep65yozt2bknhsjmf6si",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eauxgl5hueyjx4hqwmkx66h6fmcnq45zsfdi5iiq3gwq7s2ccmetu": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eauxgl5hueyjx4hqwmkx66h6fmcnq45zsfdi5iiq3gwq7s2ccmetu",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo"
+        },
+        "id": "urn:uuid:158c6949-7999-4a08-86be-e163da2984c0",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.507896Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..GnrX9dVSR8KpD1KEtEfoF7yilS76p6qb8nyIl-2kasg__jgHKvuoh6JxU3olVw_lcMBBRzNWlngv49V--raoow",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eairul5hu62cbf5tgls5tfwizwft3sqtj2wowijhnhlmhbfj3sdqo": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eairul5hu62cbf5tgls5tfwizwft3sqtj2wowijhnhlmhbfj3sdqo",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebkpxv2cjvgtjpsoeg7mhe7ohilcb4j6qod2f4yve6mohzrzpj2n4"
+        },
+        "id": "urn:uuid:ea12f0ac-0ea3-48fd-a5af-7035ddc84560",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.493369Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..R5KeYlUmKq2vpodz94Ke4nHTPfjzmwp3xeT3gpafQ41l0-5EnOyACjmr8TcMQyCsVr8WUXiQnp0P0VZecbD_WA",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+      "@type": "ComputationRegistration",
+      "input": [
+        "urn:cid:bafkr4idhp6rhtmwigpjqddzcavjsisoweanewj7yfubjvjsezbfxl3rjda",
+        "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy",
+        "urn:cid:bafkr4ifkrqtznyp6mv7kxumrymbyltdcvafh6rep65yozt2bknhsjmf6si"
+      ],
+      "operatedBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "output": [
+        "urn:cid:bafkr4ic4z6rsgwz2nu3xkn75dgyh6fzdu4tduepnafv6x6q4ozycwpolia"
+      ],
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecnkwtixac7joh55pzzolyxeoofolet7qcsdbsur3yep26zsytfn4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecnkwtixac7joh55pzzolyxeoofolet7qcsdbsur3yep26zsytfn4",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4igneoy7ekkc5nixlmsrdi66noonbansk2zgdnr32ui37xchhx3qqu",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecmsb56x5neiw56i4pwcehioupo5jv35fawdzzhopt2hxnwer7hfy": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecmsb56x5neiw56i4pwcehioupo5jv35fawdzzhopt2hxnwer7hfy",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6edcujocxhuvoq7imbjovmf6ggkwf3tscrmilzeef23sxtrqixub3o"
+        },
+        "id": "urn:uuid:b7530ee7-a856-4ede-8c0b-5a95196797f2",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.376522Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..aa09IUPdePmlf52nRmqcV-KFcbcnkHzRGHXDhw4MDxQDhIvVCYfNkmIMVpiy9bMdv_QmLkiWpEQQQOOOLlz6dA",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edsuiqmehe5zqoma6f3bnvipxapt7i7khv5zbcqpgd7uebdq66qne": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edsuiqmehe5zqoma6f3bnvipxapt7i7khv5zbcqpgd7uebdq66qne",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ed3a4brfnm2whazpculldfq6yvhftrciwbavigqzyi2oikytqo5ja"
+        },
+        "id": "urn:uuid:b8646cae-98d9-4143-b57d-66393558140c",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.516150Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..AhBOFowhxUfx7xER4yHklaj7E8co8QwYGmaPIWzUY-pFEUrNORGr-6ByOHas9WVcBKPM8GTbQPwepAoLYzY4WA",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edwsdbqzxex37ztkaxs5o4lobrgmu7skh5yf64i55fnjv5blcv4oi": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edwsdbqzxex37ztkaxs5o4lobrgmu7skh5yf64i55fnjv5blcv4oi",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ecguzzyxpzyizextkvsourmbkbaiai5w3ljbq56qox4teqlk6t6fc",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4idrdibadurs6b742yqiunidevxcfcp24pbwigq7qnjqwrbbafmdxi",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eacsejkqpfptponab6avdedwjnx7h4xim2wa75t2dhl6xcg7nyq64": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eacsejkqpfptponab6avdedwjnx7h4xim2wa75t2dhl6xcg7nyq64",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ihclv7phmbdnbilljmqpgokxyzwlpcbqvrrvep7xpsq65wzq27whu",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecxeyeiyaif5ym5xkwkcfmfmarqcnkf4myl4lqm3xwcufcuvoljoq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecxeyeiyaif5ym5xkwkcfmfmarqcnkf4myl4lqm3xwcufcuvoljoq",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ea7b3dirnk7sgdw5q4mdvl5zk3zwrogghc76y3ptfw35ejgzs2mvc",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ic4z6rsgwz2nu3xkn75dgyh6fzdu4tduepnafv6x6q4ozycwpolia",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eabk6oqev7vafolrv5p5h4xzx33dwhefkuc4boadyu5ue7typo7cc": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eabk6oqev7vafolrv5p5h4xzx33dwhefkuc4boadyu5ue7typo7cc",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eajyjdy4ligazovpltdvx4mvqsedmlxrwrvajcnpnvmtjtgpwhtu4"
+        },
+        "id": "urn:uuid:68ba6b95-71d5-4678-962b-58a6ab69d33e",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.470094Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..pb1V7ZGb8-hU7yhXIzwrWBiI0XMO5uqj_8l1g9OIVt4nsSmoTHHuOYrhYTRNxsgkcF4PkDhacnnl4YHg0NcCHQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eapiz5umy742ufr6yydw5irwvzb4nfbegoehkdvygvg37d53usnhy": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eapiz5umy742ufr6yydw5irwvzb4nfbegoehkdvygvg37d53usnhy",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ed2vlf5fwjlkzsrz2baoetpudg4xtsgnysdyvwrbgm4xsohi3i3j4"
+        },
+        "id": "urn:uuid:f92e628f-2278-40c4-ab1b-c8198263df45",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.391881Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..I3iPqVTUOeYY31z8KPltVJuzeCBBfmSlhgN-FfU2OXxNJ1AgSzNdKQ4c0KITbdOFzpYK9JjBAZuAdDQAysceyQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebj2rmogj5zyicwvawqrb6inm5hpj74toi26eqpwolovyezixdq5g": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebj2rmogj5zyicwvawqrb6inm5hpj74toi26eqpwolovyezixdq5g",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebabk3rlqnnn7ovztj7dztct7trb2imcyvrexpjtsenqx2oxsd74y"
+        },
+        "id": "urn:uuid:8432a3ce-22b6-4539-89b7-3df6219a4eb7",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.488342Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..slUvpGv1ZT6ANEYw6E0IZ-b1HzBS4ArJWYVfyxY4dFhU6ZBHy3hWSAiymdAEdgYMCff6e8bffhwkAom4H6qoBg",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ed4id65o7udkqwosm2rmlmotcpcblm3t22fcqrfzu3sqgqubxjouq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ed4id65o7udkqwosm2rmlmotcpcblm3t22fcqrfzu3sqgqubxjouq",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eaoskw6s6octcq64gfxnxkf4qygc7qijjw2knizipq33m56pev5fm",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ihfs3wdxypkkmrlcmznxwlo5augrqvcfcv25thm7nifnab4wjmstu",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edjmms2lmxnbogizexu254whl6pghkiywgcqxh7zwvldfsctiyrmy": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edjmms2lmxnbogizexu254whl6pghkiywgcqxh7zwvldfsctiyrmy",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ie4crrgnrmnvfos5hinyb627tg6f24cbdrpijmtlntdnsliy32uci",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebzl54a6hamrf73rjsnp6sjlj3lxglgrcmgxo4m57jg26rpjfde7c": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebzl54a6hamrf73rjsnp6sjlj3lxglgrcmgxo4m57jg26rpjfde7c",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebqur4wpt5pjbzivwythzjyprjyvp5rwhgz64ftxit4bd2uvxzs3m"
+        },
+        "id": "urn:uuid:ff9abc71-5117-46ae-9c47-d4b1d24207ee",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.419390Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..NwZklTFM8EPLkG7loyZA7jOkJOAOGna5XafA8RLKdPQp2SZn-1VfsP0pikpVwUzgrG46E_Ohrff-v96XzvRaYg",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebxxgujiycelukn7sbsisdf5x7ay7r2x3uqetuhnametzckyiqu44": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebxxgujiycelukn7sbsisdf5x7ay7r2x3uqetuhnametzckyiqu44",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eaubs4jzrsmxc4wu5yflolhyyzh2yoiedi5sgnmuxkluyxgtkaxxa",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ie4crrgnrmnvfos5hinyb627tg6f24cbdrpijmtlntdnsliy32uci",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ec6wtooecjen6nnx3cob26k4mnxsoxjy76qqlxliuxu2snsn75jgo": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ec6wtooecjen6nnx3cob26k4mnxsoxjy76qqlxliuxu2snsn75jgo",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ih4hjdzu62flzifmaoa6tasyecgjzjeenez2rkylgi4ioc5a6cm2a",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edjbw6s2ux7qmlxk726gj6kcleklphkel7ktqcuzqnzk3nynws4gq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edjbw6s2ux7qmlxk726gj6kcleklphkel7ktqcuzqnzk3nynws4gq",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eb2ayyps2z3ild24hmuupe66di73uulyte2j33qvwrinctx734ljq"
+        },
+        "id": "urn:uuid:9bfbe2fb-f2ab-4886-9688-df030fad561e",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.501036Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..YGenYnT7mJZFcfJiCDhuoZjmsIm2mX6B_8V8hP92Vt1mdAKsxi_8cCoVxdnVCG-PEgo2NJvjTqqNZkB0hbJr6Q",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebawps6j52t5iibtbfgqfg6w76r232kgtxakeraflgaghuwmjtu6y": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebawps6j52t5iibtbfgqfg6w76r232kgtxakeraflgaghuwmjtu6y",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6edt3wxgftshyh6vn623d5znh45zhlsk7kxmsfa7qf4wdrtjagrcqq"
+        },
+        "id": "urn:uuid:777f2abe-be4c-48d3-ab20-f917199da09a",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.423529Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..rYUyTcvUG4ZQpp7Xm_wjSO0o_7oy6SrQ1NxmyIliqgMKUvR7i_GX55lHMHqWb2v2oFf67F2hWgoCkE6ZiplmzA",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebchxttxuy7k7xi4n3juzej5tjeyroecrqlscueon6ihf4tqyfmuy": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebchxttxuy7k7xi4n3juzej5tjeyroecrqlscueon6ihf4tqyfmuy",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebghlfmb7oii7bim7jnjzb32soa6e2yim4d73bihqy3gg5l5b2uxq"
+        },
+        "id": "urn:uuid:a8d569dd-5bdc-43a4-8e3f-ee081ace401f",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.438271Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..f9xVOS12ToWcoly_5lFzRZCb34tETey0oUpQJwj30DUtyQs63_FsKSZdpWbi6AVnDyMbFfxaM-7CRS7IXi9AHw",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edn4qzcvsgtgpyq25uncvi3tfm266pi4eqxtuhzn6iyugshmdrhqi": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edn4qzcvsgtgpyq25uncvi3tfm266pi4eqxtuhzn6iyugshmdrhqi",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ebbeouszh4tqw6qvn4avd4qq75vmrsrr72phi3feexylmj4ajmzt2",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4iccr5tjeeovi24as6pissmpco77lvhkibwv5ivnth3khymdni3cgy",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ea77l5f4worbivn6oyqy34kxk3njxcca2rbtxsonzaqvrexijqiy4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ea77l5f4worbivn6oyqy34kxk3njxcca2rbtxsonzaqvrexijqiy4",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ec4i3pcq5siftqblh45q64fkfnojr72y735sfsvmjw2bcw6dovod4"
+        },
+        "id": "urn:uuid:087c0e39-ebf2-4a63-8153-afdaa6a3fa38",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.463641Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..y3p1C3hegJfxMtbFvsU3SfRpCbDPESn72SFTne3VvF0KmbQg0h3VmB8gYtdeyMzI-JXUosupU2aZTTG-tXKgYg",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecbjwxuycjadkgmklfjjgacd4uodskmhkgyapjmzjgljjpvpfmdb4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecbjwxuycjadkgmklfjjgacd4uodskmhkgyapjmzjgljjpvpfmdb4",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebxxgujiycelukn7sbsisdf5x7ay7r2x3uqetuhnametzckyiqu44"
+        },
+        "id": "urn:uuid:80445d05-5cef-4515-bed2-20fae6fd2fc9",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.364770Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..beh9WcbMbfGPmicQruODUQPhVR3UWrd6UbPu3fQWvj8dWe4LGffSmYrSMLt-e-uaj78KFecd4E5qDOfH1MhN0A",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eb2ykeii64zagowqccyheo23mdplfd7n3scfjd7kua3plfzsmtq3i": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eb2ykeii64zagowqccyheo23mdplfd7n3scfjd7kua3plfzsmtq3i",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6edzpraw5cd6fwalma2z37os6bszrvg2rrzn3md3ha5kxbixuzcesu"
+        },
+        "id": "urn:uuid:0687d185-aae0-4bdf-9f07-f6bda79e0826",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.406966Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..HXEefQPvB4tccWrsfm-qCfGIPx8KXeO1F77HyYiUKoE9F5hV1b5h3QA5u491PfPBkv_3dK0xLzBw5f7Dd4l3dg",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ea5ub257z2fyyowenv5br3q7fohcblnc6dsihnyabyfftqgj2opfy": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ea5ub257z2fyyowenv5br3q7fohcblnc6dsihnyabyfftqgj2opfy",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eaqhh7mx3pdupgl2x6ndm4cn4uptktnuh3szb3ail7yaauq4tbsey",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ihclv7phmbdnbilljmqpgokxyzwlpcbqvrrvep7xpsq65wzq27whu",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebeggcrim5xrzu2ta2k7ych4kygnh6o23wza6f4cwywmt4m4j4kps": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebeggcrim5xrzu2ta2k7ych4kygnh6o23wza6f4cwywmt4m4j4kps",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eafu2s24bbrr3j553r2n4opubd4i33n77wn7b37jxl2rxkib6zwbg"
+        },
+        "id": "urn:uuid:66e8589a-2137-4c4d-9459-e46dde648e4b",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.526340Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..x-Tk_ud4OyxNGUAoloEuTYJy50rv3xG05UPdeAsgId5jiKuQYKJoPlyB7dg2DGgmrq7FsrfZ8sizDNxRbPy38w",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edt3wxgftshyh6vn623d5znh45zhlsk7kxmsfa7qf4wdrtjagrcqq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edt3wxgftshyh6vn623d5znh45zhlsk7kxmsfa7qf4wdrtjagrcqq",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4iccr5tjeeovi24as6pissmpco77lvhkibwv5ivnth3khymdni3cgy",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ec2y6x6afihobfcpjqvakyuoufyoli5tdksjajeqkacuhzhrlqxto": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ec2y6x6afihobfcpjqvakyuoufyoli5tdksjajeqkacuhzhrlqxto",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebbozipspoeow5mzxk7eqcc2j3a3ioasjniv4kbzywjyxxiohxqno"
+        },
+        "id": "urn:uuid:0d418fae-c5e1-4745-abf3-a84e31c8d683",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.384152Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..0QJ1z7C6ESPq3ClyHp_CgJSyCPu5fri3nfCsHLvxEjp1KhTECDeF0SoC4bMQP0gyPXvKg4nMFTN_yzzI7MhI-w",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edmjsp4pdmylwi467lie3npwudlk6r245vazjpsaar54aog7aynlk": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edmjsp4pdmylwi467lie3npwudlk6r245vazjpsaar54aog7aynlk",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ecnkwtixac7joh55pzzolyxeoofolet7qcsdbsur3yep26zsytfn4"
+        },
+        "id": "urn:uuid:fa85565d-84fa-428f-b695-66e3e178b943",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.453007Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..v_A-_GqARi8wZth4o2lrLVv-GgJ5LLL_vr-x6A7JKoAQHff1rMzTZ28Gyd5dGYxTXolhAsIMkbNB5NodOoKhbw",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebwriegohli65lhiak2ucrbjqv64smwsjej2w6ilouhw7nkhwi7v2": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebwriegohli65lhiak2ucrbjqv64smwsjej2w6ilouhw7nkhwi7v2",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebay3vvy2oh67aeqgsgvcq76jwwyxixud24jm7hot2q5fbv6acbkm"
+        },
+        "id": "urn:uuid:80c0113c-95bd-49df-b016-ffe3c676ed3f",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.399479Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..OLodmrmky2qf0x9-MPa4zJbdNRGi1vE7QIN9AWLb--A_XgPS7VbQtv203LbotdsKllkRAU9485lsqZ29lXnUTQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eaerm5uwj72txlrelxfggfew7x7qw3bvh4f4shcxqbyeyfbywctj6": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eaerm5uwj72txlrelxfggfew7x7qw3bvh4f4shcxqbyeyfbywctj6",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eaepd42b424fitrk7rjrwmtpah2xviw7pfj3thixomm5r6x3yha72"
+        },
+        "id": "urn:uuid:b964b1ee-ad04-49d8-892e-cfd716fd066b",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.387799Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..yBXlBhJaRhK3Wtf9EUzdwT7dA6dyqs0-LIlVkf8rJF0Vsb37e4aXsphzFpezwfUcexVg5GuDrh-Nm9FeIHnV0w",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebabk3rlqnnn7ovztj7dztct7trb2imcyvrexpjtsenqx2oxsd74y": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebabk3rlqnnn7ovztj7dztct7trb2imcyvrexpjtsenqx2oxsd74y",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ed2mkjzl57bptiogqslxolemn4xeym7psbkx6ezmcwla2vtdahdtq",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecgxtaaiqpi72arqusqskhse7adm2bccufji3qdsbwiktjbafacis": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecgxtaaiqpi72arqusqskhse7adm2bccufji3qdsbwiktjbafacis",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4icclsymfmlzgd5z5cwyfs7ekoxkhpqed5furzt5ylfp22j5udnbpe",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eahzvtjjlmslrkrrdabcqicptwyry6poo5ndilakbcr5jusqwlrd2": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eahzvtjjlmslrkrrdabcqicptwyry6poo5ndilakbcr5jusqwlrd2",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eajkpq5a5h6hm5wlwm3ilpn2bglfa4kfqq5su3qtdoanlfnr473we"
+        },
+        "id": "urn:uuid:283e5dfe-0e3e-451c-aafd-f12dd0c027b7",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.478022Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..Q4FEt66ZMuxD7mfI-ElqIgxkpY7-7aZ-AWiqE3KPu_42TG2a-tMTSCRzMf_t2p9mKrsIr-b6RykLm1UJF22k2A",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edgxp65bvypogw46mmgf6ce3b5kkzlsybbcxr6lltgwuvo4ikq2pi": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edgxp65bvypogw46mmgf6ce3b5kkzlsybbcxr6lltgwuvo4ikq2pi",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ed4id65o7udkqwosm2rmlmotcpcblm3t22fcqrfzu3sqgqubxjouq"
+        },
+        "id": "urn:uuid:8b939c8d-b779-4ad7-881f-ea9d79059ddd",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.379905Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..DdlqeuCqOjS51WXTe9odlJVeY9dEuBjqKjHzcQMPJSFFTloU5AMW62qCcp9RLUGChacyfhzkmMig7pjzDX3Q0Q",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eairu4oo7r7btoja4rw6jz64wgvmtknzmerou25fbavjt2pc4xj4w": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eairu4oo7r7btoja4rw6jz64wgvmtknzmerou25fbavjt2pc4xj4w",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebmnmh5hb6thx4tkegdwnfcvmpexxcq54klfdngkl6e3s6n6zbfp4"
+        },
+        "id": "urn:uuid:9102d1f1-8d66-4b2f-b808-72645f796567",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.441670Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..ZjwWSGLsVsGWUiQ7aBKADzjzMGZUv-ZTCmu2GN6Nsn1jcP_teUGz9VY3FfbDq-mD0cPi1PhG0674-SDeyAUuJQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ed2vlf5fwjlkzsrz2baoetpudg4xtsgnysdyvwrbgm4xsohi3i3j4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ed2vlf5fwjlkzsrz2baoetpudg4xtsgnysdyvwrbgm4xsohi3i3j4",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4iasiby54jjianxt5wxctppsotzh7lihb6sb6tnog2dcmqksyblvyy",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ed3a4brfnm2whazpculldfq6yvhftrciwbavigqzyi2oikytqo5ja": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ed3a4brfnm2whazpculldfq6yvhftrciwbavigqzyi2oikytqo5ja",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4idrdibadurs6b742yqiunidevxcfcp24pbwigq7qnjqwrbbafmdxi",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eb2ayyps2z3ild24hmuupe66di73uulyte2j33qvwrinctx734ljq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eb2ayyps2z3ild24hmuupe66di73uulyte2j33qvwrinctx734ljq",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ic4z6rsgwz2nu3xkn75dgyh6fzdu4tduepnafv6x6q4ozycwpolia",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebxltbrrm4vv4fhstqmz6ktbluvjjldmttxn3itfqrg6miat5ry6s": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebxltbrrm4vv4fhstqmz6ktbluvjjldmttxn3itfqrg6miat5ry6s",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebs5lqrcasnncexzd5nm7xpooafamaqy6lhkq4jhehjgryjcqqbfs"
+        },
+        "id": "urn:uuid:9b2864bd-51e9-48a7-8fde-f79fba3ab2e1",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.410983Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..xun3j2djdSeEujVP0gTTARrOumk060tRAjHDrqNos7VH69pnB5iaAI01NuD_0RsMXfEj1RlWEJFJsMf_DDlrOg",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebqur4wpt5pjbzivwythzjyprjyvp5rwhgz64ftxit4bd2uvxzs3m": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebqur4wpt5pjbzivwythzjyprjyvp5rwhgz64ftxit4bd2uvxzs3m",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eakosbyw6gkyan2e7cji3qovbdosmhoavm4udjf4d3srdbsvk7hiw",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ib4qidi5zum6ceckiohoclko7amqyxst74o2crauc2b4bxhcf7iwq",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+      "@type": "ComputationRegistration",
+      "input": [
+        "urn:cid:bafkr4idrdibadurs6b742yqiunidevxcfcp24pbwigq7qnjqwrbbafmdxi",
+        "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy",
+        "urn:cid:bafkr4ic4z6rsgwz2nu3xkn75dgyh6fzdu4tduepnafv6x6q4ozycwpolia"
+      ],
+      "operatedBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "output": [
+        "urn:cid:bafkr4ichin4su662vejgau4hxlyzz2pi2m24r7tlz6eubp5wx2q7ew2y5u",
+        "urn:cid:bafkr4ihclv7phmbdnbilljmqpgokxyzwlpcbqvrrvep7xpsq65wzq27whu",
+        "urn:cid:bafkr4igneoy7ekkc5nixlmsrdi66noonbansk2zgdnr32ui37xchhx3qqu",
+        "urn:cid:bafkr4icclsymfmlzgd5z5cwyfs7ekoxkhpqed5furzt5ylfp22j5udnbpe"
+      ],
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eaepd42b424fitrk7rjrwmtpah2xviw7pfj3thixomm5r6x3yha72": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eaepd42b424fitrk7rjrwmtpah2xviw7pfj3thixomm5r6x3yha72",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ea5k3q6daombgbruy6jwtdk55s52ah3iclvigjcxhm7sptuwhwcpw",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4iatalo773xfp4blmwrdbxd3rqp6jd3jdpqpwo4qnvhfkiusez4bte",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edlttt4eksmmlxc7mob3vasi5qtyhj32x44egozqgbmwzslxcrwc4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edlttt4eksmmlxc7mob3vasi5qtyhj32x44egozqgbmwzslxcrwc4",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6edn4qzcvsgtgpyq25uncvi3tfm266pi4eqxtuhzn6iyugshmdrhqi"
+        },
+        "id": "urn:uuid:a31ec3b6-bec5-40a1-8c02-cfb692594dc2",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.426871Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..fFpxqUWLAskHk4he5cY8UndF92USGy6p8nsH0ewInloo0nMgeoCvgeUq4cXByqTmuZETXgJAhqNsBj6cb-Ogrg",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edbornnr5jxvs6z6wkunbzdnuvsvsfwkusyktq4xamoy27522m3ci": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edbornnr5jxvs6z6wkunbzdnuvsvsfwkusyktq4xamoy27522m3ci",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebly72wxjzu45hz2kx7w4ygqxhhxycrxwlek6vdhzplfvpkqzzrbs"
+        },
+        "id": "urn:uuid:d9a18f7c-1072-4be7-8017-cba5b9f841e6",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.430839Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..7d01sc4I13FRhqpcTWEdSq_SqBVH9wGTkcrfpdrlFXkGFjWXIlmCpf4uNCRqbKhlMFhGlQoP4ZrcvyNeq3l0Ng",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebly72wxjzu45hz2kx7w4ygqxhhxycrxwlek6vdhzplfvpkqzzrbs": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebly72wxjzu45hz2kx7w4ygqxhhxycrxwlek6vdhzplfvpkqzzrbs",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ifkrqtznyp6mv7kxumrymbyltdcvafh6rep65yozt2bknhsjmf6si",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edoq3rrjq7nk4y64thnbyf57rcwiynjsurfo5pzhioxx6ld44buay": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edoq3rrjq7nk4y64thnbyf57rcwiynjsurfo5pzhioxx6ld44buay",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ecgxtaaiqpi72arqusqskhse7adm2bccufji3qdsbwiktjbafacis"
+        },
+        "id": "urn:uuid:b406128a-eb24-4ad8-8f9c-314b3946b162",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.460337Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..l1f6g4YTkujfJfoscccWK-D3pzg9t-xyJR2pvUQ5njwQLlV6qb7RJPw60aZOkKRq3WsDvSGovx-Rq90eFR4YUQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebbozipspoeow5mzxk7eqcc2j3a3ioasjniv4kbzywjyxxiohxqno": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebbozipspoeow5mzxk7eqcc2j3a3ioasjniv4kbzywjyxxiohxqno",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4iatalo773xfp4blmwrdbxd3rqp6jd3jdpqpwo4qnvhfkiusez4bte",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebghlfmb7oii7bim7jnjzb32soa6e2yim4d73bihqy3gg5l5b2uxq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebghlfmb7oii7bim7jnjzb32soa6e2yim4d73bihqy3gg5l5b2uxq",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ichin4su662vejgau4hxlyzz2pi2m24r7tlz6eubp5wx2q7ew2y5u",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eahuzunplz6su6ar24ml6wimwuevpbdpqlrsj43vozu7wkfsetpf4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eahuzunplz6su6ar24ml6wimwuevpbdpqlrsj43vozu7wkfsetpf4",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ib4qidi5zum6ceckiohoclko7amqyxst74o2crauc2b4bxhcf7iwq",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eazojlpolf6jifvi3ap7py3rly377me3b73ei6fqp2ttdtjaymlnm": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eazojlpolf6jifvi3ap7py3rly377me3b73ei6fqp2ttdtjaymlnm",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ebcyehp47junhusrmowtpp5ckh3i3s2dsdwhpsrvuqon7j6whxiqc",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ih4hjdzu62flzifmaoa6tasyecgjzjeenez2rkylgi4ioc5a6cm2a",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ed3t2zepxtugmzlo2ibrsxapbl2oj32uezlriqagziscy6zlsqira": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ed3t2zepxtugmzlo2ibrsxapbl2oj32uezlriqagziscy6zlsqira",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ec6wtooecjen6nnx3cob26k4mnxsoxjy76qqlxliuxu2snsn75jgo"
+        },
+        "id": "urn:uuid:27e2a96e-e22b-4bf4-a6fa-39793c4814a0",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.368880Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..WULfDx__5u442f4TnglGDLdIk9wj--egr1svzjFO-wUUtdF4SAjrC6ATSv0HJdsCEJzhHdYzESUih2ZH2bCMTQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebl7dipmkeczy5ewtxjudk7k467swnzbsopdx3pvmt22hybxr5ixi": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebl7dipmkeczy5ewtxjudk7k467swnzbsopdx3pvmt22hybxr5ixi",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6edamyhmcw2u4fcupdvdjfkrsc6w7dvkpy7cvglh7bnztggcfarf6c"
+        },
+        "id": "urn:uuid:12fa752c-bfb5-45ac-9c3e-e562aaa07fa8",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.456379Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..-M4pvVvKJdzclIXodpNGfrPvc1-nkAUMZdPQ9D1QLCQvFS9CzNFVPSAGZnYfS8BGaj4NInZ2RfHXs2VW7YkcaQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edcscp7dnfsbrxqdpeuqpao3rawebftitrd4mimxwhvvciapchkja": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edcscp7dnfsbrxqdpeuqpao3rawebftitrd4mimxwhvvciapchkja",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6"
+        },
+        "id": "urn:uuid:bcf9e692-b281-413a-a334-caf101eca377",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.484935Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..B9wtc7yNVqdnmfIxmQHUwaP_x6oj-N9ZVU8rZGzLGGBkW4t04qp_Z9_S2VaPUE43faVfWi3GootG126NIVMWaA",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eafu2s24bbrr3j553r2n4opubd4i33n77wn7b37jxl2rxkib6zwbg": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eafu2s24bbrr3j553r2n4opubd4i33n77wn7b37jxl2rxkib6zwbg",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ec6yrkarvhvyr5vih5pty3oqyqnhrxloy2nxxfbf3ggpkxe4egpkg",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edvuk2jm6gt6lcw7rkrojw2zg2g54bjpj4asjtitg6ckvfakkrdaq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edvuk2jm6gt6lcw7rkrojw2zg2g54bjpj4asjtitg6ckvfakkrdaq",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6"
+        },
+        "id": "urn:uuid:521e0bd6-983a-4964-939e-528ab6074b47",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.522963Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..vSrWUHdOFDT2DL-37p17hEms436qSFLaVFzzYBeQFF1w5gCdHkGYbxeZdCpq6-23UfmpED_zhmXvLfKaylPkMQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edqhm32j2ua47nygjimksiha4kws7raho5pqljnquj5h7papybi2c": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edqhm32j2ua47nygjimksiha4kws7raho5pqljnquj5h7papybi2c",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eahuzunplz6su6ar24ml6wimwuevpbdpqlrsj43vozu7wkfsetpf4"
+        },
+        "id": "urn:uuid:590486a9-c58f-429f-b38f-4f566aebf9c7",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.415744Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..RXV8PJZ6kMSA0ki5286JZChZ3UDTjgsUUY3dkV97uXEAb4x2ZcvE7NCuXis3pTOOoxOvGWihiX4UZ1TtrtIapg",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eck7z3yhrx47ei4wqn6i36raqifj4jc3bnks2dtn622yzabxqzoyq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eck7z3yhrx47ei4wqn6i36raqifj4jc3bnks2dtn622yzabxqzoyq",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eb75b2mnpahgv23arne4kyh6rws2mj5ynb5uxec47yyrske53sm62"
+        },
+        "id": "urn:uuid:a05ca110-36d2-4d25-a37f-1590c7dbbd19",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.481529Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..eXey4o_A9VZVQqIf6c1Ps4wpB4g2iH02LkFizNP8WMs0ZOSqdIYUI_nVBmLpmbktOsuurn7OERPipI1_opOi9A",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edzp67zdgsriov5boi7askahcc7jovlgauowa3bmh56fnsxrxtzgq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edzp67zdgsriov5boi7askahcc7jovlgauowa3bmh56fnsxrxtzgq",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ecxeyeiyaif5ym5xkwkcfmfmarqcnkf4myl4lqm3xwcufcuvoljoq"
+        },
+        "id": "urn:uuid:a1077379-798d-4d5e-9b17-4e2adac818ab",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.504531Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..Bqqk4E6ETHQI_eiFnGr0n4MlxAC9RRcMVN61F9hS2hNg54PLfgdsMufikj_QLfNxIe8SXe3oygUqI-pKPIz-3w",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eb75b2mnpahgv23arne4kyh6rws2mj5ynb5uxec47yyrske53sm62": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eb75b2mnpahgv23arne4kyh6rws2mj5ynb5uxec47yyrske53sm62",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eceprgxbbv2fkfrfuclcu2ru4xrnloheixcymk3pkdqcwicdx6cqm",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebay3vvy2oh67aeqgsgvcq76jwwyxixud24jm7hot2q5fbv6acbkm": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebay3vvy2oh67aeqgsgvcq76jwwyxixud24jm7hot2q5fbv6acbkm",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ie5jm2o3qfqhqn4rrd47slw57dc5o3xxsz2yjkh26illlynegvcn4",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ed6rgrblyw32ofk4a3iarrabypsuhp3rd5ftbg422ae75zj77ttke": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ed6rgrblyw32ofk4a3iarrabypsuhp3rd5ftbg422ae75zj77ttke",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6edm7b4kela76l37glmbecgzpoczbln22xyrjj6kgqmzju5sz34cxk"
+        },
+        "id": "urn:uuid:9d768e82-327d-40ee-8c15-950532decf83",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.434272Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..kUdASXyzskcm98VysM_XhK3I3VKUqs1XqkcmmOxH-qICBXqUfOlvMVJffmm7A45rsHRZ0ISNB8NqRGSYc5iOoA",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eckq3di23qw7tzp7rvybdlougbcitxtpx66ywbn3hrje3ydisu44i": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eckq3di23qw7tzp7rvybdlougbcitxtpx66ywbn3hrje3ydisu44i",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eca3kqbj6rq22k4adcqv3vqvp6sgljalotk6ye3444sa4mf5iodl4",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edamyhmcw2u4fcupdvdjfkrsc6w7dvkpy7cvglh7bnztggcfarf6c": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edamyhmcw2u4fcupdvdjfkrsc6w7dvkpy7cvglh7bnztggcfarf6c",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eac7l5mihhxeslgxgmrpnmvesfibqfciv23lhkwlaws4fp55mxk3i",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4igneoy7ekkc5nixlmsrdi66noonbansk2zgdnr32ui37xchhx3qqu",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eajyjdy4ligazovpltdvx4mvqsedmlxrwrvajcnpnvmtjtgpwhtu4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eajyjdy4ligazovpltdvx4mvqsedmlxrwrvajcnpnvmtjtgpwhtu4",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4id3reg3zexokcbprqfto5lpnrxsgappztjp4rz7ix2chhxh27b4m4",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edzpraw5cd6fwalma2z37os6bszrvg2rrzn3md3ha5kxbixuzcesu": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edzpraw5cd6fwalma2z37os6bszrvg2rrzn3md3ha5kxbixuzcesu",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ic7c7kgd43klspefiypdzqddkbyjckjvp7u5mkx2vjsxidk6trke4",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebeuf47y2jngjyhwwimziaw2rg7b7ehxeqio4rkbtniuiprd5uxfo": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebeuf47y2jngjyhwwimziaw2rg7b7ehxeqio4rkbtniuiprd5uxfo",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebl56lzydtsquvk6onqvyg55fszkfg75udbs6exgss3grqfgdxjzo"
+        },
+        "id": "urn:uuid:961980f0-33d0-441a-aec1-db73a1987a92",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.395445Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..4xOz4w3n4Oxt_pWudjMDzRYOb3OfYf-bilaB0EHf3WICh5uMlNL8Luw8Qj-vCLzkHgNZcRHFmOXEI7Xmb6T8Xw",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebmnmh5hb6thx4tkegdwnfcvmpexxcq54klfdngkl6e3s6n6zbfp4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebmnmh5hb6thx4tkegdwnfcvmpexxcq54klfdngkl6e3s6n6zbfp4",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6edu6yl66nkttnd4zsofyhppf4nd7emta7nwghr6gh7ikvxnl6oyya",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ichin4su662vejgau4hxlyzz2pi2m24r7tlz6eubp5wx2q7ew2y5u",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebjhyeskhyeucnrkwclxrf4um3b2vqyfmf62za7q6m53b4g2mnjuy": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebjhyeskhyeucnrkwclxrf4um3b2vqyfmf62za7q6m53b4g2mnjuy",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ea5ub257z2fyyowenv5br3q7fohcblnc6dsihnyabyfftqgj2opfy"
+        },
+        "id": "urn:uuid:594d4ab2-b1cf-481d-bc2f-ab0f6bd9edfa",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.449049Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..a2OyjmDJo9naJOIzvF6evwZRrgBPSKNRh7m7OMU_A-NJ60gPJtlW1rzhxOosjZ6sVz_kqTtDA24YKpKMbUCZIQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebovedvwgijoiu3serrvvzo3qd25jn6y3ut4wt56x2ejm4i5hwdn4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebovedvwgijoiu3serrvvzo3qd25jn6y3ut4wt56x2ejm4i5hwdn4",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eda2vvek7lcmtzf5l7suf5i5sfbng3ypi3tq4c3ydcsj6wjah2isg",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ie5jm2o3qfqhqn4rrd47slw57dc5o3xxsz2yjkh26illlynegvcn4",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eci532hq65p5qec5eabsy3jmcrqplrektddln7x2l72ofkcadwyhw": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eci532hq65p5qec5eabsy3jmcrqplrektddln7x2l72ofkcadwyhw",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eacsejkqpfptponab6avdedwjnx7h4xim2wa75t2dhl6xcg7nyq64"
+        },
+        "id": "urn:uuid:a4e1f376-e8e1-46b5-b3b2-a1d17eb56658",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.445716Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..KPOnSST1gaOhI6jQfkL_WhVtlUufanME-zmVrLDhjix_Dti1yceXeYuN-vDW4SStoxY07bZiePPu-8lysYaDnQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebkpxv2cjvgtjpsoeg7mhe7ohilcb4j6qod2f4yve6mohzrzpj2n4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebkpxv2cjvgtjpsoeg7mhe7ohilcb4j6qod2f4yve6mohzrzpj2n4",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4idhp6rhtmwigpjqddzcavjsisoweanewj7yfubjvjsezbfxl3rjda",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebl56lzydtsquvk6onqvyg55fszkfg75udbs6exgss3grqfgdxjzo": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebl56lzydtsquvk6onqvyg55fszkfg75udbs6exgss3grqfgdxjzo",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ebh6alwtcqtioaogaknpzvlleif6oxm7ogpas7d3xx7esqzuzr3ry",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4iasiby54jjianxt5wxctppsotzh7lihb6sb6tnog2dcmqksyblvyy",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eajkpq5a5h6hm5wlwm3ilpn2bglfa4kfqq5su3qtdoanlfnr473we": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eajkpq5a5h6hm5wlwm3ilpn2bglfa4kfqq5su3qtdoanlfnr473we",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edcujocxhuvoq7imbjovmf6ggkwf3tscrmilzeef23sxtrqixub3o": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edcujocxhuvoq7imbjovmf6ggkwf3tscrmilzeef23sxtrqixub3o",
+      "@type": "DataRegistration",
+      "data": "urn:cid:bafkr4ihfs3wdxypkkmrlcmznxwlo5augrqvcfcv25thm7nifnab4wjmstu",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecqfib33pkxbka24xt633ikzl37oqiwxbct4pwjotnj7dtturckl2": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecqfib33pkxbka24xt633ikzl37oqiwxbct4pwjotnj7dtturckl2",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eaifkpbymmetasnzovxyc6ypgucxkqdjwtec43bl5w4kx5kxkvpew"
+        },
+        "id": "urn:uuid:d77b2e8c-1019-47d5-b0a4-fe0f26718066",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.473741Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..XLQ7Z-9xqN_DvDXLOClzKsdiCq5c-UHM2HGCO1IWj45L2GJl-IXuozsnWCvGeC1G3HC2LhxhFp5oaL860F0o5g",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6eawx5quhbhym73i5cotvp3uvcsdjqqzlrb7ycmcaiz6xbf5fltm2y": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6eawx5quhbhym73i5cotvp3uvcsdjqqzlrb7ycmcaiz6xbf5fltm2y",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ecz2ss4cte6xiznqrmubztq7xmh3piwjoj7yhkvuvgjae4pw4nkzm",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4idhp6rhtmwigpjqddzcavjsisoweanewj7yfubjvjsezbfxl3rjda",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebs5lqrcasnncexzd5nm7xpooafamaqy6lhkq4jhehjgryjcqqbfs": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebs5lqrcasnncexzd5nm7xpooafamaqy6lhkq4jhehjgryjcqqbfs",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6eambncipyhumufzpu2qeu5mf4fjottfccvikk62jhmbctedrfr5qm",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4ic7c7kgd43klspefiypdzqddkbyjckjvp7u5mkx2vjsxidk6trke4",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6edasj7aiogfrklq6bxnrzy4s22pardfu34wzg2te7pazgx2lsxjcc": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6edasj7aiogfrklq6bxnrzy4s22pardfu34wzg2te7pazgx2lsxjcc",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eawx5quhbhym73i5cotvp3uvcsdjqqzlrb7ycmcaiz6xbf5fltm2y"
+        },
+        "id": "urn:uuid:e70e3557-8de3-4e72-8840-5eb087f180cd",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.496923Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..QClVeIzbq8vxYI9NAuE4Io8iifLQ5hjMUy3ZHtWiC6ZmUEbZwwuXdj3bUHKwDxDDdLPaohjyZpZx5belgzhl4Q",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ebpbehxi7tqnqv2uhwm6sgujhacqp27biljusrrv36fbyhigiuqbm": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ebpbehxi7tqnqv2uhwm6sgujhacqp27biljusrrv36fbyhigiuqbm",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6edwsdbqzxex37ztkaxs5o4lobrgmu7skh5yf64i55fnjv5blcv4oi"
+        },
+        "id": "urn:uuid:93dfa79b-9c28-4d52-8b5d-53b13603ea8d",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.519656Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..kGoIBB6cCsO2uHEygfOZexyT7kvR9by5YqfoQU8QjTIpPvwcEQI7tewYYyq3UAsaS6Jflu594iRJF_imxc5HEQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecmwfopsqskyi4a2mmopvsengpwlbi3nsc27b7zcqvvo35kgn3iba": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecmwfopsqskyi4a2mmopvsengpwlbi3nsc27b7zcqvvo35kgn3iba",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6ebovedvwgijoiu3serrvvzo3qd25jn6y3ut4wt56x2ejm4i5hwdn4"
+        },
+        "id": "urn:uuid:63f924d2-479d-4529-99fe-02d304fbb206",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.402908Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..FnJip1VNYQquKy9GA3dXUC3yYpfWM8reCKh8UwKFcOsasw_AmMvtmgNLpjBkRJJPmGZilD98z-nW5zbmedBjqQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecwjgtg4stat3wh35ota7vbajktae4x6ndvfyll5tpylesmvdrg4q": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecwjgtg4stat3wh35ota7vbajktae4x6ndvfyll5tpylesmvdrg4q",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eckq3di23qw7tzp7rvybdlougbcitxtpx66ywbn3hrje3ydisu44i"
+        },
+        "id": "urn:uuid:2580f461-aa3c-4e59-9d3e-f2f97ee75402",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.511291Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..yS9nwFwILrsp-UCS5MAQK7ttr6uzi9iW7OVpegvp7UodJmmFV88u57ndps-CfjeQgHTxMCU5dCNXUYOhh-qvJQ",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ecemeoxzptyya26tactmvw7apihozpbbhlzibv53nmmjujwnsmalq": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ecemeoxzptyya26tactmvw7apihozpbbhlzibv53nmmjujwnsmalq",
+      "@type": "CredentialRegistration",
+      "credential": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/security/v2"
+        ],
+        "credentialSubject": {
+          "id": "urn:cid:bagb6qaq6eazojlpolf6jifvi3ap7py3rly377me3b73ei6fqp2ttdtjaymlnm"
+        },
+        "id": "urn:uuid:82d2118a-a7aa-4705-83df-5147cc1f4618",
+        "issuanceDate": "2024-09-20T15:41:06Z",
+        "issuer": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+        "proof": {
+          "created": "2024-09-20T15:41:06.372480Z",
+          "jws": "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..mHG2y0o-AEHA360frEFebSrZqORWxesKgV_CnGDtK2BY4L5nKXQuAiH1agtI5XkrM9dHnMkQKgQqIARonmXz5Q",
+          "proofPurpose": "assertionMethod",
+          "type": "EcdsaSecp256k1Signature2019",
+          "verificationMethod": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF#zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+        },
+        "type": ["VerifiableCredential"],
+        "validFrom": "2024-09-20T15:41:06Z"
+      },
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6ec4i3pcq5siftqblh45q64fkfnojr72y735sfsvmjw2bcw6dovod4": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6ec4i3pcq5siftqblh45q64fkfnojr72y735sfsvmjw2bcw6dovod4",
+      "@type": "MetadataRegistration",
+      "metadata": "urn:cid:baga6yaq6ea6fanzso65b7e6zdkb3ahdinx3i5n4unjoruymoxtyviyqjvzvqe",
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "subject": "urn:cid:bafkr4icclsymfmlzgd5z5cwyfs7ekoxkhpqed5furzt5ylfp22j5udnbpe",
+      "timestamp": "2024-09-20T15:41:06Z"
+    },
+    "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6": {
+      "@context": "urn:cid:bafkr4iabnkikpzzyfflv7fjphyggja6uwwi3224u24pmmzmgyfsprdex4q",
+      "@id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+      "@type": "ComputationRegistration",
+      "input": [
+        "urn:cid:bafkr4id3reg3zexokcbprqfto5lpnrxsgappztjp4rz7ix2chhxh27b4m4",
+        "urn:cid:bafkr4ie4crrgnrmnvfos5hinyb627tg6f24cbdrpijmtlntdnsliy32uci",
+        "urn:cid:bafkr4ih4hjdzu62flzifmaoa6tasyecgjzjeenez2rkylgi4ioc5a6cm2a",
+        "urn:cid:bafkr4ihfs3wdxypkkmrlcmznxwlo5augrqvcfcv25thm7nifnab4wjmstu",
+        "urn:cid:bafkr4iatalo773xfp4blmwrdbxd3rqp6jd3jdpqpwo4qnvhfkiusez4bte",
+        "urn:cid:bafkr4iasiby54jjianxt5wxctppsotzh7lihb6sb6tnog2dcmqksyblvyy",
+        "urn:cid:bafkr4ie5jm2o3qfqhqn4rrd47slw57dc5o3xxsz2yjkh26illlynegvcn4",
+        "urn:cid:bafkr4ic7c7kgd43klspefiypdzqddkbyjckjvp7u5mkx2vjsxidk6trke4",
+        "urn:cid:bafkr4ib4qidi5zum6ceckiohoclko7amqyxst74o2crauc2b4bxhcf7iwq",
+        "urn:cid:bafkr4iccr5tjeeovi24as6pissmpco77lvhkibwv5ivnth3khymdni3cgy"
+      ],
+      "operatedBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "output": [
+        "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy"
+      ],
+      "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+      "timestamp": "2024-09-20T15:41:06Z"
+    }
+  },
+  "blobs": {
+    "baga6yaq6ebcyehp47junhusrmowtpp5ckh3i3s2dsdwhpsrvuqon7j6whxiqc": "ewogICAgIm5hbWUiOiAiRW1wbG95ZWUgRGF0YSIsCiAgICAibmFtZXNwYWNlIjogIm9rciIsCiAgICAidHlwZSI6ICJEYXRhIiwKICAgICJibG9iX3R5cGUiOiAiVmFyaWFibGUiLAogICAgImFzc2V0VHlwZSI6ICJEYXRhc2V0Igp9",
+    "baga6yaq6eakosbyw6gkyan2e7cji3qovbdosmhoavm4udjf4d3srdbsvk7hiw": "ewogICAgIm5hbWUiOiAiTUwgVXNlciBGZWVkYmFjayBMb29wIiwKICAgICJuYW1lc3BhY2UiOiAib2tyIiwKICAgICJ0eXBlIjogIkRhdGEiLAogICAgImJsb2JfdHlwZSI6ICJWYXJpYWJsZSIsCiAgICAiYXNzZXRUeXBlIjogIk1vZGVsIgp9",
+    "baga6yaq6ecz2ss4cte6xiznqrmubztq7xmh3piwjoj7yhkvuvgjae4pw4nkzm": "ewogICAgIm5hbWUiOiAiaHJfcGVyZm9ybWFuY2VfcmVjb21tZW5kYXRpb25zIiwKICAgICJuYW1lc3BhY2UiOiAib2tyIiwKICAgICJ0eXBlIjogIkRhdGEiLAogICAgImJsb2JfdHlwZSI6ICJWYXJpYWJsZSIsCiAgICAiZGVzY3JpcHRpb24iOiBudWxsLAogICAgImFzc2V0VHlwZSI6ICJDb2RlIgp9",
+    "baga6yaq6eaxaatwqhwazzlbib2f33m6btlfyu3dblda4wzhol5jllvpj55vy4": "ewogICAgIm5hbWUiOiAiQ2hhdEdQVDQiLAogICAgIm5hbWVzcGFjZSI6ICJva3IiLAogICAgInR5cGUiOiAiRGF0YSIsCiAgICAiYmxvYl90eXBlIjogIlZhcmlhYmxlIiwKICAgICJhc3NldFR5cGUiOiAiTW9kZWwiCn0=",
+    "baga6yaq6ea5k3q6daombgbruy6jwtdk55s52ah3iclvigjcxhm7sptuwhwcpw": "ewogICAgIm5hbWUiOiAiRW1wbG95ZWUgUGVyZm9ybWFuY2UgTWV0cmljcyIsCiAgICAibmFtZXNwYWNlIjogIm9rciIsCiAgICAidHlwZSI6ICJEYXRhIiwKICAgICJibG9iX3R5cGUiOiAiVmFyaWFibGUiLAogICAgImFzc2V0VHlwZSI6ICJEYXRhc2V0Igp9",
+    "baga6yaq6ebh6alwtcqtioaogaknpzvlleif6oxm7ogpas7d3xx7esqzuzr3ry": "ewogICAgIm5hbWUiOiAiRW1wbG95ZWUgTWV0cmljcyIsCiAgICAibmFtZXNwYWNlIjogIm9rciIsCiAgICAidHlwZSI6ICJEYXRhIiwKICAgICJibG9iX3R5cGUiOiAiVmFyaWFibGUiLAogICAgImFzc2V0VHlwZSI6ICJEYXRhc2V0Igp9",
+    "baga6yaq6ed2mkjzl57bptiogqslxolemn4xeym7psbkx6ezmcwla2vtdahdtq": "ewogICAgIm5hbWUiOiAiQ29tcHV0ZSBIUiBQZXJmb3JtYW5jZSIsCiAgICAibmFtZXNwYWNlIjogIm9rciIsCiAgICAidHlwZSI6ICJDb21wdXRhdGlvbiIsCiAgICAiYmxvYl90eXBlIjogIlZhcmlhYmxlIgp9",
+    "baga6yaq6eca3kqbj6rq22k4adcqv3vqvp6sgljalotk6ye3444sa4mf5iodl4": "ewogICAgIm5hbWUiOiAiSFIgUGVyZm9ybWFuY2UgUmVjb21tZW5kYXRpb25zIiwKICAgICJuYW1lc3BhY2UiOiAib2tyIiwKICAgICJ0eXBlIjogIkNvbXB1dGF0aW9uIiwKICAgICJibG9iX3R5cGUiOiAiVmFyaWFibGUiCn0=",
+    "baga6yaq6ebbeouszh4tqw6qvn4avd4qq75vmrsrr72phi3feexylmj4ajmzt2": "ewogICAgIm5hbWUiOiAiSkFJUyIsCiAgICAibmFtZXNwYWNlIjogIm9rciIsCiAgICAidHlwZSI6ICJEYXRhIiwKICAgICJibG9iX3R5cGUiOiAiVmFyaWFibGUiLAogICAgImFzc2V0VHlwZSI6ICJNb2RlbCIKfQ==",
+    "baga6yaq6ea6xxs5m5fq3yoymjmpqzdoky5n537zharydbh4l7w5p4cen25qq6": "ewogICAgIm5hbWUiOiAiY29tcHV0ZV9ocl9wZXJmb3JtYW5jZSIsCiAgICAibmFtZXNwYWNlIjogIm9rciIsCiAgICAidHlwZSI6ICJEYXRhIiwKICAgICJibG9iX3R5cGUiOiAiVmFyaWFibGUiLAogICAgImRlc2NyaXB0aW9uIjogbnVsbCwKICAgICJhc3NldFR5cGUiOiAiQ29kZSIKfQ==",
+    "baga6yaq6eda2vvek7lcmtzf5l7suf5i5sfbng3ypi3tq4c3ydcsj6wjah2isg": "ewogICAgIm5hbWUiOiAiU291cmNlIElkZW50aWZpY2F0aW9uIFJBRyBNb2RlbCIsCiAgICAibmFtZXNwYWNlIjogIm9rciIsCiAgICAidHlwZSI6ICJEYXRhIiwKICAgICJibG9iX3R5cGUiOiAiVmFyaWFibGUiLAogICAgImFzc2V0VHlwZSI6ICJNb2RlbCIKfQ==",
+    "baga6yaq6ec6yrkarvhvyr5vih5pty3oqyqnhrxloy2nxxfbf3ggpkxe4egpkg": "ewogICAgIm5hbWUiOiAiRG93bnN0cmVhbSBBc3NldCBJbnRlZ3JhdGlvbnMiLAogICAgIm5hbWVzcGFjZSI6ICJva3IiLAogICAgInR5cGUiOiAiQ29tcHV0YXRpb24iLAogICAgImJsb2JfdHlwZSI6ICJWYXJpYWJsZSIKfQ==",
+    "baga6yaq6ea7b3dirnk7sgdw5q4mdvl5zk3zwrogghc76y3ptfw35ejgzs2mvc": "ewogICAgIm5hbWUiOiAiSFIgUGVyZm9ybWFuY2UgUmVjb21tZW5kYXRpb25zIiwKICAgICJuYW1lc3BhY2UiOiAib2tyIiwKICAgICJ0eXBlIjogIkRhdGEiLAogICAgImJsb2JfdHlwZSI6ICJWYXJpYWJsZSIsCiAgICAiZGVzY3JpcHRpb24iOiAiSFIgcGVyZm9ybWFuY2UgcmVjb21tZW5kYXRpb25zIiwKICAgICJhc3NldFR5cGUiOiAiRGF0YXNldCIKfQ==",
+    "baga6yaq6eaoskw6s6octcq64gfxnxkf4qygc7qijjw2knizipq33m56pev5fm": "ewogICAgIm5hbWUiOiAiSm9iIFBlcmZvcm1hbmNlIERhdGEiLAogICAgIm5hbWVzcGFjZSI6ICJva3IiLAogICAgInR5cGUiOiAiRGF0YSIsCiAgICAiYmxvYl90eXBlIjogIlZhcmlhYmxlIiwKICAgICJhc3NldFR5cGUiOiAiRGF0YXNldCIKfQ==",
+    "baga6yaq6ecguzzyxpzyizextkvsourmbkbaiai5w3ljbq56qox4teqlk6t6fc": "ewogICAgIm5hbWUiOiAiZG93bnN0cmVhbV9hc3NldF9pbnRlZ3JhdGlvbnMiLAogICAgIm5hbWVzcGFjZSI6ICJva3IiLAogICAgInR5cGUiOiAiRGF0YSIsCiAgICAiYmxvYl90eXBlIjogIlZhcmlhYmxlIiwKICAgICJkZXNjcmlwdGlvbiI6IG51bGwsCiAgICAiYXNzZXRUeXBlIjogIkNvZGUiCn0=",
+    "baga6yaq6eaubs4jzrsmxc4wu5yflolhyyzh2yoiedi5sgnmuxkluyxgtkaxxa": "ewogICAgIm5hbWUiOiAiSFIgRGF0YSIsCiAgICAibmFtZXNwYWNlIjogIm9rciIsCiAgICAidHlwZSI6ICJEYXRhIiwKICAgICJibG9iX3R5cGUiOiAiVmFyaWFibGUiLAogICAgImFzc2V0VHlwZSI6ICJEYXRhc2V0Igp9",
+    "baga6yaq6eaqhh7mx3pdupgl2x6ndm4cn4uptktnuh3szb3ail7yaauq4tbsey": "ewogICAgIm5hbWUiOiAiT2ZmaWNlIDM2NSIsCiAgICAibmFtZXNwYWNlIjogIm9rciIsCiAgICAidHlwZSI6ICJEYXRhIiwKICAgICJibG9iX3R5cGUiOiAiVmFyaWFibGUiLAogICAgImFzc2V0VHlwZSI6ICJEYXRhc2V0Igp9",
+    "baga6yaq6eac7l5mihhxeslgxgmrpnmvesfibqfciv23lhkwlaws4fp55mxk3i": "ewogICAgIm5hbWUiOiAiT3JhY2xlIERhdGFiYXNlIiwKICAgICJuYW1lc3BhY2UiOiAib2tyIiwKICAgICJ0eXBlIjogIkRhdGEiLAogICAgImJsb2JfdHlwZSI6ICJWYXJpYWJsZSIsCiAgICAiYXNzZXRUeXBlIjogIkRhdGFzZXQiCn0=",
+    "baga6yaq6eceprgxbbv2fkfrfuclcu2ru4xrnloheixcymk3pkdqcwicdx6cqm": "ewogICAgIm5hbWUiOiAiSFIgUGVyZm9ybWFuY2UiLAogICAgIm5hbWVzcGFjZSI6ICJva3IiLAogICAgInR5cGUiOiAiRGF0YSIsCiAgICAiYmxvYl90eXBlIjogIlZhcmlhYmxlIiwKICAgICJkZXNjcmlwdGlvbiI6ICJIUiBwZXJmb3JtYW5jZSBhbmFseXNpcyByZXN1bHRzIiwKICAgICJhc3NldFR5cGUiOiAiRGF0YXNldCIKfQ==",
+    "baga6yaq6ea6fanzso65b7e6zdkb3ahdinx3i5n4unjoruymoxtyviyqjvzvqe": "ewogICAgIm5hbWUiOiAiSFIgUGVyZm9ybWFuY2UiLAogICAgIm5hbWVzcGFjZSI6ICJva3IiLAogICAgInR5cGUiOiAiRGF0YSIsCiAgICAiYmxvYl90eXBlIjogIlZhcmlhYmxlIiwKICAgICJhc3NldFR5cGUiOiAiRGF0YXNldCIKfQ==",
+    "baga6yaq6eambncipyhumufzpu2qeu5mf4fjottfccvikk62jhmbctedrfr5qm": "ewogICAgIm5hbWUiOiAiQUkgTWF0Y2hpbmcgJiBSYW5raW5nIiwKICAgICJuYW1lc3BhY2UiOiAib2tyIiwKICAgICJ0eXBlIjogIkRhdGEiLAogICAgImJsb2JfdHlwZSI6ICJWYXJpYWJsZSIsCiAgICAiYXNzZXRUeXBlIjogIk1vZGVsIgp9",
+    "baga6yaq6edu6yl66nkttnd4zsofyhppf4nd7emta7nwghr6gh7ikvxnl6oyya": "ewogICAgIm5hbWUiOiAiT0tSIiwKICAgICJuYW1lc3BhY2UiOiAib2tyIiwKICAgICJ0eXBlIjogIkRhdGEiLAogICAgImJsb2JfdHlwZSI6ICJWYXJpYWJsZSIsCiAgICAiYXNzZXRUeXBlIjogIkRhdGFzZXQiCn0="
+  },
+  "derived": {
+    "lineage": {
+      "nodes": [
+        {
+          "node": {
+            "id": "urn:cid:bafkr4iasiby54jjianxt5wxctppsotzh7lihb6sb6tnog2dcmqksyblvyy",
+            "properties": {
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ed2flwe4s3bvvdgdpogq274ht4kgdyak4wa4pjmaxnqjgmq65ux2m",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "data"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/Employee_Metrics-blvyy",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4iasiby54jjianxt5wxctppsotzh7lihb6sb6tnog2dcmqksyblvyy",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6ebh6alwtcqtioaogaknpzvlleif6oxm7ogpas7d3xx7esqzuzr3ry",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "name": "Employee Metrics",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4iatalo773xfp4blmwrdbxd3rqp6jd3jdpqpwo4qnvhfkiusez4bte",
+            "properties": {
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6eah6sd3tfjiz5gja635pss53jdlyqkqq7em6eshwzybk3xvpyzr2g",
+              "nodeType": "data",
+              "timestamp": "2024-09-20T15:41:06Z"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/Employee_Performance_Metrics-z4bte",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4iatalo773xfp4blmwrdbxd3rqp6jd3jdpqpwo4qnvhfkiusez4bte",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6ea5k3q6daombgbruy6jwtdk55s52ah3iclvigjcxhm7sptuwhwcpw",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "name": "Employee Performance Metrics",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ib4qidi5zum6ceckiohoclko7amqyxst74o2crauc2b4bxhcf7iwq",
+            "properties": {
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "data",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ecphhkbtgnqaijayz5qly2mfa45utfcxhhbh4mpxy6l7zcowcofz6",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/ML_User_Feedback_Loop-f7iwq",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ib4qidi5zum6ceckiohoclko7amqyxst74o2crauc2b4bxhcf7iwq",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6eakosbyw6gkyan2e7cji3qovbdosmhoavm4udjf4d3srdbsvk7hiw",
+              "metadata": {
+                "assetType": "Model",
+                "blob_type": "Variable",
+                "name": "ML User Feedback Loop",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ic4z6rsgwz2nu3xkn75dgyh6fzdu4tduepnafv6x6q4ozycwpolia",
+            "properties": {
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ebi54ixjwbfzv64prmlfbpijahrwvpphyl27o7xv6ig24d2zvescu",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "data",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/HR_Performance_Recommendations-polia",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ic4z6rsgwz2nu3xkn75dgyh6fzdu4tduepnafv6x6q4ozycwpolia",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6ea7b3dirnk7sgdw5q4mdvl5zk3zwrogghc76y3ptfw35ejgzs2mvc",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "description": "HR performance recommendations",
+                "name": "HR Performance Recommendations",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ic7c7kgd43klspefiypdzqddkbyjckjvp7u5mkx2vjsxidk6trke4",
+            "properties": {
+              "timestamp": "2024-09-20T15:41:06Z",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ea65pec2d75etf4lvcajdmwsig5axt4k3vlvgs7jwyrnnwix34lqo",
+              "nodeType": "data"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/AI_Matching_&_Ranking-trke4",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ic7c7kgd43klspefiypdzqddkbyjckjvp7u5mkx2vjsxidk6trke4",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6eambncipyhumufzpu2qeu5mf4fjottfccvikk62jhmbctedrfr5qm",
+              "metadata": {
+                "assetType": "Model",
+                "blob_type": "Variable",
+                "name": "AI Matching & Ranking",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4icclsymfmlzgd5z5cwyfs7ekoxkhpqed5furzt5ylfp22j5udnbpe",
+            "properties": {
+              "nodeType": "data",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6edbic5ospjp7xqjnmchzamfptp25hbsc63qpkrtznysp22g7e5pm6"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/HR_Performance-dnbpe",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4icclsymfmlzgd5z5cwyfs7ekoxkhpqed5furzt5ylfp22j5udnbpe",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6ea6fanzso65b7e6zdkb3ahdinx3i5n4unjoruymoxtyviyqjvzvqe",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "name": "HR Performance",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4iccr5tjeeovi24as6pissmpco77lvhkibwv5ivnth3khymdni3cgy",
+            "properties": {
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "data",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6eauu3fo42sz2bvp56teyhwelfrvkxk4ew36ysvcxxiyy7dljjj3jm",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/JAIS-i3cgy",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4iccr5tjeeovi24as6pissmpco77lvhkibwv5ivnth3khymdni3cgy",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6ebbeouszh4tqw6qvn4avd4qq75vmrsrr72phi3feexylmj4ajmzt2",
+              "metadata": {
+                "assetType": "Model",
+                "blob_type": "Variable",
+                "name": "JAIS",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ichin4su662vejgau4hxlyzz2pi2m24r7tlz6eubp5wx2q7ew2y5u",
+            "properties": {
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6earaldhmoqda77qe5p4nmmsk2x45ufvrag6yegddcn7y6bcxx3sks",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "data"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/OKR-w2y5u",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ichin4su662vejgau4hxlyzz2pi2m24r7tlz6eubp5wx2q7ew2y5u",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6edu6yl66nkttnd4zsofyhppf4nd7emta7nwghr6gh7ikvxnl6oyya",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "name": "OKR",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4id3reg3zexokcbprqfto5lpnrxsgappztjp4rz7ix2chhxh27b4m4",
+            "properties": {
+              "nodeType": "data",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ecxx2onwc3x2snx62uxwe3n6hv5wvcbk5afw5laidca7ag65r4bww",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/compute_hr_performance-7b4m4",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4id3reg3zexokcbprqfto5lpnrxsgappztjp4rz7ix2chhxh27b4m4",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6ea6xxs5m5fq3yoymjmpqzdoky5n537zharydbh4l7w5p4cen25qq6",
+              "metadata": {
+                "assetType": "Code",
+                "blob_type": "Variable",
+                "description": null,
+                "name": "compute_hr_performance",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4idhp6rhtmwigpjqddzcavjsisoweanewj7yfubjvjsezbfxl3rjda",
+            "properties": {
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "data",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6eascvsk3xniar3ukb2ftrrfbp2t4bp47dmbqeuivczrthhatcsomw"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/hr_performance_recommendations-3rjda",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4idhp6rhtmwigpjqddzcavjsisoweanewj7yfubjvjsezbfxl3rjda",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6ecz2ss4cte6xiznqrmubztq7xmh3piwjoj7yhkvuvgjae4pw4nkzm",
+              "metadata": {
+                "assetType": "Code",
+                "blob_type": "Variable",
+                "description": null,
+                "name": "hr_performance_recommendations",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4idrdibadurs6b742yqiunidevxcfcp24pbwigq7qnjqwrbbafmdxi",
+            "properties": {
+              "nodeType": "data",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6eavvmatyvpp3hk2xatjsnpr2uwjzmzxmclsvnvuiunfaeu4kkkml4"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/downstream_asset_integrations-fmdxi",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4idrdibadurs6b742yqiunidevxcfcp24pbwigq7qnjqwrbbafmdxi",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6ecguzzyxpzyizextkvsourmbkbaiai5w3ljbq56qox4teqlk6t6fc",
+              "metadata": {
+                "assetType": "Code",
+                "blob_type": "Variable",
+                "description": null,
+                "name": "downstream_asset_integrations",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ie4crrgnrmnvfos5hinyb627tg6f24cbdrpijmtlntdnsliy32uci",
+            "properties": {
+              "nodeType": "data",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6eahv7db3kptdcglie2qxyhqzyr6f5bmon3r34uklismxprw4yugzg",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/HR_Data-32uci",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ie4crrgnrmnvfos5hinyb627tg6f24cbdrpijmtlntdnsliy32uci",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6eaubs4jzrsmxc4wu5yflolhyyzh2yoiedi5sgnmuxkluyxgtkaxxa",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "name": "HR Data",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ie5jm2o3qfqhqn4rrd47slw57dc5o3xxsz2yjkh26illlynegvcn4",
+            "properties": {
+              "nodeType": "data",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ebixsdxresiluk4gcu2olsdxma5jqgqhifyklcuxzg53xmt7idqt4",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "timestamp": "2024-09-20T15:41:06Z"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/Source_Identification_RAG_Model-gvcn4",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ie5jm2o3qfqhqn4rrd47slw57dc5o3xxsz2yjkh26illlynegvcn4",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6eda2vvek7lcmtzf5l7suf5i5sfbng3ypi3tq4c3ydcsj6wjah2isg",
+              "metadata": {
+                "assetType": "Model",
+                "blob_type": "Variable",
+                "name": "Source Identification RAG Model",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ifkrqtznyp6mv7kxumrymbyltdcvafh6rep65yozt2bknhsjmf6si",
+            "properties": {
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ecoiqyzcpa5ovf3ptn3qladnl5hg5o56gyb2hrw6a5yhthjzywpfw",
+              "nodeType": "data",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "timestamp": "2024-09-20T15:41:06Z"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/ChatGPT4-mf6si",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ifkrqtznyp6mv7kxumrymbyltdcvafh6rep65yozt2bknhsjmf6si",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6eaxaatwqhwazzlbib2f33m6btlfyu3dblda4wzhol5jllvpj55vy4",
+              "metadata": {
+                "assetType": "Model",
+                "blob_type": "Variable",
+                "name": "ChatGPT4",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy",
+            "properties": {
+              "nodeType": "data",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ec6khms7tdekdvzh4nidhyrmeu7alhelymmjs3zxuuyuzw7uo4khu"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/HR_Performance-p6qcy",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6eceprgxbbv2fkfrfuclcu2ru4xrnloheixcymk3pkdqcwicdx6cqm",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "description": "HR performance analysis results",
+                "name": "HR Performance",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4igneoy7ekkc5nixlmsrdi66noonbansk2zgdnr32ui37xchhx3qqu",
+            "properties": {
+              "nodeType": "data",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ebzgcrzhegq44webuyf3xsejter7f3jsnynqd3tbxpxlnoreblrpk",
+              "timestamp": "2024-09-20T15:41:06Z"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/Oracle_Database-x3qqu",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4igneoy7ekkc5nixlmsrdi66noonbansk2zgdnr32ui37xchhx3qqu",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6eac7l5mihhxeslgxgmrpnmvesfibqfciv23lhkwlaws4fp55mxk3i",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "name": "Oracle Database",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ih4hjdzu62flzifmaoa6tasyecgjzjeenez2rkylgi4ioc5a6cm2a",
+            "properties": {
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "data",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ea44wfrzu7gnykybcinweyrqzjltkf2fvbjjnfyffuolglti3xgso"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/Employee_Data-6cm2a",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ih4hjdzu62flzifmaoa6tasyecgjzjeenez2rkylgi4ioc5a6cm2a",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6ebcyehp47junhusrmowtpp5ckh3i3s2dsdwhpsrvuqon7j6whxiqc",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "name": "Employee Data",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ihclv7phmbdnbilljmqpgokxyzwlpcbqvrrvep7xpsq65wzq27whu",
+            "properties": {
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "data",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ebwj5oyzeo7zvzraf6qtzdec6u6badgikyxj6joneixgifx7srjpc"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/Office_365-27whu",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ihclv7phmbdnbilljmqpgokxyzwlpcbqvrrvep7xpsq65wzq27whu",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6eaqhh7mx3pdupgl2x6ndm4cn4uptktnuh3szb3ail7yaauq4tbsey",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "name": "Office 365",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bafkr4ihfs3wdxypkkmrlcmznxwlo5augrqvcfcv25thm7nifnab4wjmstu",
+            "properties": {
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "data",
+              "dataRegistrationJcs": "urn:cid:baga6yaq6ecg5gowjplcffe55xpbhcntmstuacvubt2bkanguy6a7mug3ppal6"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/Job_Performance_Data-jmstu",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bafkr4ihfs3wdxypkkmrlcmznxwlo5augrqvcfcv25thm7nifnab4wjmstu",
+              "data_type": "data",
+              "metadata_cid": "baga6yaq6eaoskw6s6octcq64gfxnxkf4qygc7qijjw2knizipq33m56pev5fm",
+              "metadata": {
+                "assetType": "Dataset",
+                "blob_type": "Variable",
+                "name": "Job Performance Data",
+                "namespace": "okr",
+                "type": "Data"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "properties": {
+              "jcsCID": "urn:cid:baga6yaq6ec5k3fyqlwbyngp7bampns3kyqy55rsrmkrkbaip7afggk3zzqyh4",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "timestamp": "2024-09-20T15:41:06Z",
+              "nodeType": "computation",
+              "operatedBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/Downstream_Asset_Integrations-3c7q6",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+              "data_type": "computation",
+              "metadata_cid": "baga6yaq6ec6yrkarvhvyr5vih5pty3oqyqnhrxloy2nxxfbf3ggpkxe4egpkg",
+              "metadata": {
+                "blob_type": "Variable",
+                "name": "Downstream Asset Integrations",
+                "namespace": "okr",
+                "type": "Computation"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "properties": {
+              "timestamp": "2024-09-20T15:41:06Z",
+              "operatedBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "nodeType": "computation",
+              "jcsCID": "urn:cid:baga6yaq6ecqdu3btte6qyeteedkkzlv7uqa2hx37cu6cucjsrrccnotctzgoi",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/Compute_HR_Performance-kxhf6",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+              "data_type": "computation",
+              "metadata_cid": "baga6yaq6ed2mkjzl57bptiogqslxolemn4xeym7psbkx6ezmcwla2vtdahdtq",
+              "metadata": {
+                "blob_type": "Variable",
+                "name": "Compute HR Performance",
+                "namespace": "okr",
+                "type": "Computation"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+            "properties": {
+              "operatedBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "nodeType": "computation",
+              "registeredBy": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "jcsCID": "urn:cid:baga6yaq6ebmhrcrcnbbsu7xe6iudvvpsaci6x3olsikuj2evazwjsxkjcermc",
+              "timestamp": "2024-09-20T15:41:06Z"
+            }
+          },
+          "enrichments": {
+            "metadata": {
+              "id": "okr/HR_Performance_Recommendations-77tyo",
+              "registered_by": "did:key:zQ3shsjmMpBWGfFY2qgv39Bog63YaotPiNnsxSxeeSFj4fffF",
+              "data_cid": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+              "data_type": "computation",
+              "metadata_cid": "baga6yaq6eca3kqbj6rq22k4adcqv3vqvp6sgljalotk6ye3444sa4mf5iodl4",
+              "metadata": {
+                "blob_type": "Variable",
+                "name": "HR Performance Recommendations",
+                "namespace": "okr",
+                "type": "Computation"
+              }
+            }
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge": {
+            "id": "1a1dca61-f8a5-571e-9119-70233b25a988",
+            "source_id": "urn:cid:bafkr4iasiby54jjianxt5wxctppsotzh7lihb6sb6tnog2dcmqksyblvyy",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "22348cf7-edaf-ef7d-9b99-1795ec487bff",
+            "source_id": "urn:cid:bafkr4ie5jm2o3qfqhqn4rrd47slw57dc5o3xxsz2yjkh26illlynegvcn4",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "25fb1892-b405-d331-4dfa-6fb2a6364dd9",
+            "source_id": "urn:cid:bafkr4ib4qidi5zum6ceckiohoclko7amqyxst74o2crauc2b4bxhcf7iwq",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "2766a65f-58e4-2377-d18b-efb45928a015",
+            "source_id": "urn:cid:bafkr4iccr5tjeeovi24as6pissmpco77lvhkibwv5ivnth3khymdni3cgy",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "2cb2a66c-e3e6-b659-1bc2-b649d314f874",
+            "source_id": "urn:cid:bafkr4ie4crrgnrmnvfos5hinyb627tg6f24cbdrpijmtlntdnsliy32uci",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "2cc1df6c-2f3f-20ef-c567-95c5ed5a2365",
+            "source_id": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+            "target_id": "urn:cid:bafkr4ic4z6rsgwz2nu3xkn75dgyh6fzdu4tduepnafv6x6q4ozycwpolia",
+            "statement": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+            "label": "output"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "4d2457fa-b3cd-0c21-34c3-af2f1aee06cb",
+            "source_id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "target_id": "urn:cid:bafkr4ichin4su662vejgau4hxlyzz2pi2m24r7tlz6eubp5wx2q7ew2y5u",
+            "statement": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "label": "output"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "4fc55fc1-a46c-f710-9d6c-5e01dd4d4568",
+            "source_id": "urn:cid:bafkr4iatalo773xfp4blmwrdbxd3rqp6jd3jdpqpwo4qnvhfkiusez4bte",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "51d05664-eb7d-5c0f-1aac-0253a8dc1192",
+            "source_id": "urn:cid:bafkr4id3reg3zexokcbprqfto5lpnrxsgappztjp4rz7ix2chhxh27b4m4",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "52734996-1215-f851-957b-9c8dcbb31bc2",
+            "source_id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "target_id": "urn:cid:bafkr4ihclv7phmbdnbilljmqpgokxyzwlpcbqvrrvep7xpsq65wzq27whu",
+            "statement": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "label": "output"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "5293f60f-3325-5173-477f-1710f394bd27",
+            "source_id": "urn:cid:bafkr4idhp6rhtmwigpjqddzcavjsisoweanewj7yfubjvjsezbfxl3rjda",
+            "target_id": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+            "statement": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "66eb3a3b-9544-3c94-5693-e30b1c72efb2",
+            "source_id": "urn:cid:bafkr4ic4z6rsgwz2nu3xkn75dgyh6fzdu4tduepnafv6x6q4ozycwpolia",
+            "target_id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "statement": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "7a0bc444-cde9-52d9-acd8-dcae279934f3",
+            "source_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "target_id": "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "output"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "8ae540db-680b-29eb-d26b-4f49439cc9ba",
+            "source_id": "urn:cid:bafkr4ic7c7kgd43klspefiypdzqddkbyjckjvp7u5mkx2vjsxidk6trke4",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "a1a3f16f-f23f-09f6-4f1e-e07ba4f0c46e",
+            "source_id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "target_id": "urn:cid:bafkr4igneoy7ekkc5nixlmsrdi66noonbansk2zgdnr32ui37xchhx3qqu",
+            "statement": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "label": "output"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "bcef9c15-ffc2-0271-5bf4-749ea4557080",
+            "source_id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "target_id": "urn:cid:bafkr4icclsymfmlzgd5z5cwyfs7ekoxkhpqed5furzt5ylfp22j5udnbpe",
+            "statement": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "label": "output"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "cc91b97e-15a1-0736-398a-c09155bf3952",
+            "source_id": "urn:cid:bafkr4ifkrqtznyp6mv7kxumrymbyltdcvafh6rep65yozt2bknhsjmf6si",
+            "target_id": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+            "statement": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "d8926eb0-c0c4-bb03-a5bf-146ab04d6d8f",
+            "source_id": "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy",
+            "target_id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "statement": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "dd0e48d3-8d93-63a0-f2b6-6ab5bdd33e0e",
+            "source_id": "urn:cid:bafkr4idrdibadurs6b742yqiunidevxcfcp24pbwigq7qnjqwrbbafmdxi",
+            "target_id": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "statement": "urn:cid:bagb6qaq6ebfs6x7dyx3ydjt3ej3krmdkr2qg2rucpp5fpdtitjag4esd3c7q6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "e35e17b2-b116-1731-ec90-994995592d61",
+            "source_id": "urn:cid:bafkr4ih4hjdzu62flzifmaoa6tasyecgjzjeenez2rkylgi4ioc5a6cm2a",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "eddc4e2a-5013-6eb7-b5bb-2082b5b8c996",
+            "source_id": "urn:cid:bafkr4ihfs3wdxypkkmrlcmznxwlo5augrqvcfcv25thm7nifnab4wjmstu",
+            "target_id": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "statement": "urn:cid:bagb6qaq6echnf4dglzfo6f553nb3tu7ycaempg2qnbz5luntxppfv3bvkxhf6",
+            "label": "input"
+          },
+          "enrichments": {}
+        },
+        {
+          "edge": {
+            "id": "fa74df00-d1fe-6334-cc06-4ef360be47c7",
+            "source_id": "urn:cid:bafkr4ifxu3wp7tnkg2mc3hdt37rkwi7iwyuu53y5cc5y67n35xzfyp6qcy",
+            "target_id": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+            "statement": "urn:cid:bagb6qaq6ecy3tae5wl6vuls6zjtyzc2swe23hv4lpvhb6dur3wzkovyl77tyo",
+            "label": "input"
+          },
+          "enrichments": {}
+        }
+      ]
+    }
+  }
+}
